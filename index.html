@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CYO MCP — Proposal & Agenda Làm Việc Với Team MKT</title>
+<style>
+/* ════════════════════════════════════════
+   YODY DESIGN SYSTEM TOKENS
+════════════════════════════════════════ */
+:root {
+  --yody-navy:        #2B2D8F;
+  --yody-navy-dark:   #1e2070;
+  --yody-navy-light:  #3d3fa8;
+  --yody-navy-pale:   rgba(43,45,143,.07);
+  --yody-yellow:      #F5A623;
+  --yody-yellow-dark: #d98f10;
+  --yody-yellow-pale: #fff8ec;
+  --white:    #ffffff;
+  --gray-50:  #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --success: #10b981;
+  --info:    #3b82f6;
+  --danger:  #ef4444;
+  --warning: #f59e0b;
+  --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-xl: 20px; --r-full: 9999px;
+  --shadow-xs: 0 1px 2px rgba(0,0,0,.06);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.10);
+  --shadow-navy: 0 4px 20px rgba(43,45,143,.22);
+  --shadow-yellow: 0 4px 20px rgba(245,166,35,.3);
+  --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); background: var(--gray-50); color: var(--gray-800); line-height: 1.65; }
+
+/* ════ HERO ════ */
+.hero {
+  background: linear-gradient(135deg, var(--yody-navy-dark) 0%, var(--yody-navy) 55%, var(--yody-navy-light) 100%);
+  color: white; padding: 56px 40px 52px; position: relative; overflow: hidden;
+}
+.hero::before { content:''; position:absolute; width:480px; height:480px; background:radial-gradient(circle, rgba(245,166,35,.18) 0%, transparent 65%); top:-140px; right:-80px; border-radius:50%; pointer-events:none; }
+.hero-logo { font-size:22px; font-weight:900; letter-spacing:-1px; margin-bottom:20px; display:inline-flex; align-items:center; gap:10px; }
+.hero-logo .yo { color:white; } .hero-logo .dy { color:var(--yody-yellow); }
+.hero-logo-sep { width:1px; height:18px; background:rgba(255,255,255,.3); }
+.hero-logo-label { font-size:11px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:rgba(255,255,255,.6); }
+.hero-tag { display:inline-flex; align-items:center; gap:6px; background:rgba(245,166,35,.2); border:1px solid rgba(245,166,35,.4); border-radius:var(--r-full); font-size:10px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color:var(--yody-yellow); padding:4px 14px; margin-bottom:16px; }
+.hero h1 { font-size:clamp(22px,4vw,34px); font-weight:800; line-height:1.2; margin-bottom:12px; }
+.hero h1 span { color:var(--yody-yellow); }
+.hero-sub { font-size:15px; opacity:.78; max-width:580px; line-height:1.7; }
+.hero-meta { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+.meta-pill { display:flex; align-items:center; gap:8px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); border-radius:var(--r-md); padding:8px 16px; font-size:13px; }
+.meta-pill strong { color:var(--yody-yellow); }
+
+/* ════ LAYOUT ════ */
+.container { max-width:980px; margin:0 auto; padding:44px 24px 88px; }
+
+/* ════ SECTION LABEL ════ */
+.section-label { display:flex; align-items:center; gap:10px; font-size:10px; font-weight:800; letter-spacing:1.6px; text-transform:uppercase; color:var(--yody-navy); margin-bottom:16px; margin-top:52px; }
+.section-label::after { content:''; flex:1; height:1.5px; background:linear-gradient(90deg, var(--yody-navy-pale), transparent); border-radius:2px; }
+
+/* ════ DISCLAIMER BANNER ════ */
+.disclaimer-banner {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  border: 2px solid var(--yody-yellow);
+  border-radius: var(--r-xl);
+  padding: 18px 22px;
+  display: flex; align-items: flex-start; gap: 14px;
+  margin-bottom: 24px;
+}
+.disclaimer-icon { font-size: 22px; flex-shrink: 0; }
+.disclaimer-body {}
+.disclaimer-title { font-size: 13px; font-weight: 800; color: var(--yody-yellow-dark); margin-bottom: 4px; }
+.disclaimer-text { font-size: 13px; color: var(--gray-700); line-height: 1.6; }
+
+/* ════ HYPOTHESIS CARDS ════ */
+.hypo-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:14px; }
+.hypo-card {
+  background: var(--white); border: 1.5px dashed var(--gray-300);
+  border-radius: var(--r-xl); padding: 20px 18px;
+  box-shadow: var(--shadow-xs); transition: all .2s; position: relative;
+}
+.hypo-card:hover { border-color: var(--yody-navy); border-style: solid; box-shadow: var(--shadow-navy); transform: translateY(-2px); }
+.hypo-card::before {
+  content: '?';
+  position: absolute; top: 12px; right: 14px;
+  font-size: 18px; font-weight: 900; color: var(--gray-200);
+}
+.hypo-icon { font-size: 22px; margin-bottom: 10px; }
+.hypo-question { font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 6px; line-height: 1.4; }
+.hypo-hint { font-size: 12px; color: var(--gray-500); line-height: 1.5; }
+.hypo-tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  padding: 2px 8px; border-radius: var(--r-full); margin-top: 8px;
+  background: var(--yody-navy-pale); color: var(--yody-navy);
+}
+
+/* ════ CYO VALUE PROP ════ */
+.prop-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:14px; }
+.prop-card { background:var(--white); border:1.5px solid var(--gray-200); border-radius:var(--r-xl); padding:22px 20px; box-shadow:var(--shadow-xs); transition:all .2s; }
+.prop-card:hover { border-color:var(--yody-navy); box-shadow:var(--shadow-navy); transform:translateY(-2px); }
+.prop-icon-wrap { width:44px; height:44px; border-radius:var(--r-lg); display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:14px; }
+.prop-title { font-size:14px; font-weight:800; color:var(--gray-900); margin-bottom:6px; }
+.prop-desc { font-size:13px; color:var(--gray-600); line-height:1.6; margin-bottom:10px; }
+.q-tag { display:inline-block; font-size:10px; font-weight:700; padding:1px 7px; border-radius:var(--r-full); margin-right:4px; }
+.q-tag.aov { background:rgba(245,166,35,.15); color:var(--yody-yellow-dark); }
+.q-tag.channel { background:var(--yody-navy-pale); color:var(--yody-navy); }
+.q-tag.ai { background:#f0fdf4; color:#166534; }
+.q-tag.new { background:#fee2e2; color:#991b1b; }
+
+/* ════ OBJECTIVES ════ */
+.objectives-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:14px; }
+.obj-card { background:var(--white); border:1.5px solid var(--gray-200); border-radius:var(--r-xl); padding:20px; display:flex; align-items:flex-start; gap:14px; box-shadow:var(--shadow-xs); transition:all .2s; }
+.obj-card:hover { border-color:var(--yody-navy); box-shadow:var(--shadow-navy); transform:translateY(-2px); }
+.obj-icon { width:40px; height:40px; border-radius:var(--r-md); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+.obj-card p { font-size:13.5px; color:var(--gray-700); line-height:1.55; }
+
+/* ════ TABLE ════ */
+.table-wrap { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--r-xl); overflow:hidden; box-shadow:var(--shadow-sm); }
+.agenda-table, .output-table { width:100%; border-collapse:collapse; }
+.agenda-table th, .output-table th { background:var(--yody-navy); color:white; font-size:10px; font-weight:800; letter-spacing:1px; text-transform:uppercase; padding:12px 18px; text-align:left; }
+.agenda-table td, .output-table td { padding:14px 18px; font-size:14px; border-bottom:1px solid var(--gray-100); vertical-align:middle; }
+.agenda-table tr:last-child td, .output-table tr:last-child td { border-bottom:none; }
+.agenda-table tr:hover td, .output-table tr:hover td { background:var(--yody-navy-pale); }
+.time-badge { display:inline-block; background:var(--yody-navy-pale); color:var(--yody-navy); border-radius:var(--r-sm); font-size:11px; font-weight:800; padding:3px 10px; white-space:nowrap; font-family:'Consolas',monospace; }
+.owner-badge { display:inline-flex; align-items:center; gap:4px; background:var(--yody-yellow-pale); color:var(--yody-yellow-dark); border-radius:var(--r-sm); font-size:12px; font-weight:700; padding:3px 10px; border:1px solid rgba(245,166,35,.25); }
+.deadline-badge { display:inline-flex; align-items:center; gap:4px; background:#fef2f2; color:#b91c1c; border-radius:var(--r-sm); font-size:11px; font-weight:800; padding:3px 10px; border:1px solid #fecaca; }
+
+/* ════ AGENDA PROGRESS ════ */
+.agenda-progress { display:flex; border-radius:var(--r-full); overflow:hidden; height:6px; margin-bottom:20px; gap:2px; }
+.agenda-progress-seg { height:100%; border-radius:var(--r-full); }
+
+/* ════════════════════════════════════════
+   FLOW DIAGRAMS
+════════════════════════════════════════ */
+.flow-wrap {
+  background: var(--white); border: 1.5px solid var(--gray-200);
+  border-radius: var(--r-xl); padding: 28px 24px; box-shadow: var(--shadow-sm);
+  margin-bottom: 16px; overflow-x: auto;
+}
+.flow-title {
+  font-size: 13px; font-weight: 800; color: var(--gray-700);
+  margin-bottom: 20px; display: flex; align-items: center; gap: 8px;
+}
+.flow-title-badge {
+  font-size: 10px; font-weight: 900; padding: 3px 10px;
+  border-radius: var(--r-full); color: white;
+}
+
+/* Horizontal flow row */
+.flow-row {
+  display: flex; align-items: center; gap: 0;
+  flex-wrap: nowrap; min-width: max-content;
+  margin-bottom: 8px;
+}
+/* Node base */
+.fn {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; border-radius: var(--r-lg); padding: 10px 14px;
+  min-width: 110px; max-width: 130px; flex-shrink: 0;
+}
+.fn-icon { font-size: 18px; margin-bottom: 4px; }
+.fn-label { font-size: 11px; font-weight: 700; line-height: 1.3; }
+.fn-sub { font-size: 10px; opacity: .7; margin-top: 2px; line-height: 1.3; }
+/* Node colors */
+.fn-user   { background: var(--yody-yellow-pale); border: 2px solid var(--yody-yellow); color: var(--yody-yellow-dark); }
+.fn-navy   { background: var(--yody-navy); color: white; }
+.fn-agent  { background: var(--yody-navy-pale); border: 1.5px solid var(--yody-navy); color: var(--yody-navy); }
+.fn-green  { background: #f0fdf4; border: 1.5px solid var(--success); color: #166534; }
+.fn-blue   { background: #eff6ff; border: 1.5px solid var(--info); color: #1e40af; }
+.fn-output { background: var(--gray-50); border: 2px dashed var(--gray-300); color: var(--gray-600); }
+.fn-decision {
+  background: #fef3c7; border: 2px solid var(--yody-yellow);
+  color: var(--yody-yellow-dark); border-radius: 8px;
+  transform: rotate(0deg); min-width: 100px;
+}
+
+/* Arrows */
+.fa {
+  color: var(--gray-400); font-size: 18px; padding: 0 4px;
+  flex-shrink: 0; align-self: center; line-height: 1;
+}
+.fa-down { display: flex; justify-content: center; color: var(--gray-400); font-size: 16px; margin: 2px 0; }
+
+/* Branch container */
+.flow-branch { display: flex; flex-direction: column; gap: 0; align-items: center; }
+.flow-branch-row { display: flex; gap: 12px; align-items: center; }
+.flow-lane { display: flex; flex-direction: column; align-items: center; gap: 0; }
+
+/* Flow label */
+.flow-edge-label {
+  font-size: 9px; font-weight: 700; color: var(--gray-400);
+  letter-spacing: .5px; text-transform: uppercase;
+  padding: 0 4px; align-self: flex-end; margin-bottom: 2px;
+}
+
+/* Multi-row vertical flow */
+.flow-col { display: flex; flex-direction: column; align-items: center; gap: 0; }
+
+/* ════ UC BLOCKS ════ */
+.uc-block { background:var(--white); border:1.5px solid var(--gray-200); border-radius:var(--r-xl); margin-bottom:16px; overflow:hidden; box-shadow:var(--shadow-xs); transition:box-shadow .2s; }
+.uc-block:hover { box-shadow:var(--shadow-sm); }
+.uc-header { padding:18px 22px; display:flex; align-items:center; gap:14px; cursor:pointer; user-select:none; transition:background .15s; }
+.uc-header:hover { background:var(--gray-50); }
+.uc-accent-bar { width:4px; height:36px; border-radius:var(--r-full); flex-shrink:0; }
+.uc-badge { font-size:10px; font-weight:900; letter-spacing:1px; padding:5px 13px; border-radius:var(--r-full); color:white; white-space:nowrap; }
+.uc-title { flex:1; }
+.uc-title-main { font-size:15px; font-weight:700; color:var(--gray-900); }
+.uc-subtitle { font-size:12px; color:var(--gray-500); font-weight:400; margin-top:2px; }
+.uc-toggle { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--gray-100); color:var(--gray-500); font-size:12px; transition:all .22s; flex-shrink:0; }
+.uc-toggle.open { transform:rotate(180deg); background:var(--yody-navy-pale); color:var(--yody-navy); }
+.uc-purpose { margin:0 22px 16px; padding:10px 16px; background:var(--gray-50); border-radius:var(--r-md); font-size:13px; color:var(--gray-600); font-style:italic; border-left:3px solid var(--gray-300); }
+.uc-body { padding:4px 22px 24px; display:none; }
+.uc-body.open { display:block; }
+.insight-callout { background:var(--yody-yellow-pale); border:1.5px solid rgba(245,166,35,.3); border-radius:var(--r-lg); padding:12px 16px; margin-bottom:18px; display:flex; align-items:flex-start; gap:10px; }
+.insight-callout-icon { font-size:16px; flex-shrink:0; margin-top:1px; }
+.insight-callout-body { font-size:13px; color:var(--gray-700); line-height:1.6; }
+.insight-callout-body strong { color:var(--yody-yellow-dark); }
+.q-group { margin-bottom:24px; }
+.q-group-title { font-size:10px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color:var(--gray-400); margin-bottom:14px; padding-bottom:8px; border-bottom:1.5px solid var(--gray-100); }
+.q-item { display:flex; gap:12px; margin-bottom:12px; align-items:flex-start; }
+.q-num { width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; color:white; flex-shrink:0; margin-top:1px; }
+.q-text { font-size:14px; color:var(--gray-800); line-height:1.6; }
+.q-example { font-size:12px; color:var(--gray-500); margin-top:4px; font-style:italic; padding:5px 10px; background:var(--gray-50); border-radius:var(--r-sm); border-left:2px solid var(--gray-200); }
+.q-insight { font-size:11.5px; color:var(--yody-yellow-dark); margin-top:4px; font-weight:600; padding:4px 10px; background:var(--yody-yellow-pale); border-radius:var(--r-sm); border-left:2px solid var(--yody-yellow); }
+.flow-box { background:linear-gradient(135deg, var(--yody-navy-pale), rgba(43,45,143,.04)); border:1.5px solid rgba(43,45,143,.15); border-radius:var(--r-lg); padding:16px 20px; margin-top:8px; display:flex; align-items:flex-start; gap:12px; }
+.flow-box-icon { width:32px; height:32px; background:var(--yody-navy); border-radius:var(--r-md); display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; }
+.flow-box-label { font-size:10px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; color:var(--yody-navy); margin-bottom:5px; }
+.flow-box p { font-size:13.5px; color:var(--gray-700); line-height:1.6; }
+
+/* ════ VOTE ════ */
+.vote-section { background:var(--white); border:1.5px solid var(--gray-200); border-radius:var(--r-xl); overflow:hidden; box-shadow:var(--shadow-sm); }
+.vote-header { background:linear-gradient(135deg, var(--yody-yellow-pale), #fff3d4); border-bottom:1.5px solid rgba(245,166,35,.2); padding:20px 24px; display:flex; align-items:flex-start; gap:16px; }
+.vote-header-icon { width:44px; height:44px; background:var(--yody-yellow); border-radius:var(--r-lg); display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; box-shadow:var(--shadow-yellow); }
+.vote-title { font-size:16px; font-weight:800; color:var(--gray-900); margin-bottom:4px; }
+.vote-sub { font-size:13px; color:var(--gray-600); line-height:1.55; }
+.vote-body { padding:20px 24px 24px; }
+.vote-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:10px; }
+.vote-item { background:var(--gray-50); border:1.5px solid var(--gray-200); border-radius:var(--r-lg); padding:12px 14px; font-size:13px; color:var(--gray-700); display:flex; align-items:center; gap:10px; cursor:pointer; transition:all .18s; user-select:none; }
+.vote-item:hover { background:var(--yody-yellow-pale); border-color:var(--yody-yellow); color:var(--gray-900); }
+.vote-item.selected { background:var(--yody-yellow-pale); border-color:var(--yody-yellow); font-weight:700; }
+.vote-item.selected .vote-check { opacity:1; }
+.vote-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+.vote-check { margin-left:auto; font-size:14px; opacity:0; transition:opacity .15s; color:var(--yody-yellow-dark); }
+.vote-counter { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--gray-500); margin-top:14px; }
+.vote-counter span { background:var(--yody-navy-pale); color:var(--yody-navy); font-size:13px; font-weight:800; padding:2px 10px; border-radius:var(--r-full); }
+
+/* ════ FOOTER ════ */
+.footer { background:var(--yody-navy); color:rgba(255,255,255,.5); padding:22px 40px; display:flex; align-items:center; justify-content:space-between; margin-top:60px; flex-wrap:wrap; gap:12px; }
+.footer-logo { font-size:18px; font-weight:900; letter-spacing:-1px; }
+.footer-logo .yo { color:white; } .footer-logo .dy { color:var(--yody-yellow); }
+.footer-text { font-size:12px; color:rgba(255,255,255,.45); }
+.footer-text strong { color:rgba(255,255,255,.8); }
+
+@media (max-width:640px) { .hero { padding:36px 20px 36px; } .container { padding:28px 16px 64px; } .footer { padding:18px 20px; } .fn { min-width:80px; } }
+@media print { .uc-body { display:block !important; } .uc-toggle { display:none !important; } body { background:white; } }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-logo"><span class="yo">yo</span><span class="dy">dy</span><div class="hero-logo-sep"></div><span class="hero-logo-label">CYO CRM</span></div>
+  <div class="hero-tag">📋 MKT Requirements Proposal · Phase 1</div>
+  <h1>Proposal & Agenda Làm Việc<br/>Với <span>Team Marketing</span></h1>
+  <p class="hero-sub">Buổi làm việc lấy nhu cầu thực tế từ MKT — để xây dựng CYO MCP đúng trọng tâm, đúng pain point, và đo được ROI.</p>
+  <div class="hero-meta">
+    <div class="meta-pill"><span>📅</span><span>Prepared: <strong>21/04/2026</strong></span></div>
+    <div class="meta-pill"><span>⏰</span><span>Deadline output: <strong>24/04/2026</strong></span></div>
+    <div class="meta-pill"><span>👤</span><span>PO: <strong>Lãm (Water Four)</strong></span></div>
+    <div class="meta-pill"><span>🎯</span><span>UC: <strong>5 · 2 · 7 · 8</strong></span></div>
+    <div class="meta-pill"><span>⏱</span><span><strong>90 phút</strong></span></div>
+    <div class="meta-pill" style="background:rgba(52,211,153,.18);border-color:rgba(52,211,153,.4);"><span>🚀</span><span>MVP Demo: <strong style="color:#34D399;">Tháng 6 · PO Lãm trình bày</strong></span></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ══════════════════════════════════════
+       SECTION 0: BỐI CẢNH & MỤC TIÊU DỰ ÁN
+  ══════════════════════════════════════ -->
+  <div class="section-label">🏢 Bối cảnh & Mục tiêu dự án CYO</div>
+
+  <!-- Context banner -->
+  <div style="background:linear-gradient(135deg,var(--yody-navy-dark),var(--yody-navy));border-radius:var(--r-xl);padding:28px 32px;color:white;margin-bottom:24px;position:relative;overflow:hidden;">
+    <div style="position:absolute;width:320px;height:320px;background:radial-gradient(circle,rgba(245,166,35,.15) 0%,transparent 65%);top:-100px;right:-60px;border-radius:50%;pointer-events:none;"></div>
+    <div style="font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:rgba(245,166,35,.9);margin-bottom:14px;">CYO — AI CRM · YODY · Phase 1 · 2026</div>
+    <div style="font-size:18px;font-weight:800;margin-bottom:16px;line-height:1.4;">YODY đang có <span style="color:#FCAF17;">6M+ hồ sơ khách hàng</span> nhưng chưa khai thác được giá trị thực sự từ dữ liệu này.</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;">
+      <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-lg);padding:14px 16px;">
+        <div style="font-size:11px;font-weight:700;color:rgba(245,166,35,.9);margin-bottom:6px;letter-spacing:.8px;">❌ THỰC TRẠNG</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;">Chưa có CRM thực thụ. Dữ liệu phân tán, không có Single Source of Truth. MKT phải chờ BI để lấy insight — mất vài ngày cho một câu hỏi đơn giản.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-lg);padding:14px 16px;">
+        <div style="font-size:11px;font-weight:700;color:rgba(245,166,35,.9);margin-bottom:6px;letter-spacing:.8px;">🎯 MỤC TIÊU CYO</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;">Tập trung hóa dữ liệu 6M+ KH thành Golden Dataset. Cho phép MKT hỏi AI trực tiếp bằng tiếng Việt, nhận insight ngay — không cần SQL, không cần chờ BI.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-lg);padding:14px 16px;">
+        <div style="font-size:11px;font-weight:700;color:rgba(245,166,35,.9);margin-bottom:6px;letter-spacing:.8px;">⚖️ NGUYÊN TẮC CỐT LÕI</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;"><strong style="color:#FCAF17;">AI propose → Human approve → Human execute.</strong> CYO không bao giờ tự gửi campaign. Dữ liệu KH được bảo vệ nghiêm ngặt theo Nghị định 13/2026.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-lg);padding:14px 16px;">
+        <div style="font-size:11px;font-weight:700;color:rgba(245,166,35,.9);margin-bottom:6px;letter-spacing:.8px;">👥 VAI TRÒ TEAM MKT</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;">MKT là <strong style="color:#FCAF17;">primary user và business owner</strong> của CYO. Không chỉ là người dùng cuối — mà là người định hình sản phẩm từ đầu qua use-case và feedback thực tế.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION 1: CYO VALUE PROP
+  ══════════════════════════════════════ -->
+  <div class="section-label">🚀 CYO MCP đề xuất giải quyết gì cho Team MKT</div>
+  <div class="prop-grid">
+    <div class="prop-card">
+      <div class="prop-icon-wrap" style="background:var(--yody-navy-pale);">🧠</div>
+      <div class="prop-title">Giảm thời gian chờ insight</div>
+      <div class="prop-desc">Thay vì chờ BI vài ngày, MKT chat tự nhiên với AI bằng tiếng Việt và nhận kết quả ngay — không cần SQL.</div>
+      <span class="q-tag channel">UC5</span>
+    </div>
+    <div class="prop-card">
+      <div class="prop-icon-wrap" style="background:var(--yody-yellow-pale);">🎯</div>
+      <div class="prop-title">Segment theo hành vi thực tế</div>
+      <div class="prop-desc">Tạo nhóm KH bằng câu chat tiếng Việt thay vì tự build filter thủ công — nhanh hơn và chính xác hơn.</div>
+      <span class="q-tag aov">UC2</span>
+    </div>
+    <div class="prop-card">
+      <div class="prop-icon-wrap" style="background:#f0fdf4;">✍️</div>
+      <div class="prop-title">Gợi ý content theo KH profile</div>
+      <div class="prop-desc">AI dựa trên lịch sử mua hàng và kênh ưa thích để gợi ý nội dung phù hợp — không phải 1 bản cho tất cả.</div>
+      <span class="q-tag ai">UC7</span>
+    </div>
+    <div class="prop-card">
+      <div class="prop-icon-wrap" style="background:#eff6ff;">✅</div>
+      <div class="prop-title">Luồng duyệt campaign rõ ràng</div>
+      <div class="prop-desc">Mỗi campaign AI đề xuất đều cần người duyệt — human-in-the-loop đảm bảo kiểm soát chất lượng.</div>
+      <span class="q-tag channel">UC8</span>
+    </div>
+    <div class="prop-card">
+      <div class="prop-icon-wrap" style="background:#fdf4ff;">📡</div>
+      <div class="prop-title">Attribution đa kênh</div>
+      <div class="prop-desc">Hiểu KH từ kênh nào chuyển đổi tốt nhất để phân bổ ngân sách campaign chính xác hơn.</div>
+      <span class="q-tag new">UC4 · Roadmap</span>
+    </div>
+    <div class="prop-card">
+      <div class="prop-icon-wrap" style="background:#fff1f2;">🔁</div>
+      <div class="prop-title">Phát hiện KH sắp rời đi</div>
+      <div class="prop-desc">AI phát hiện dấu hiệu churn sớm để MKT trigger campaign win-back kịp thời trước khi mất KH.</div>
+      <span class="q-tag new">UC6 · Roadmap</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION: CURRENT VS CYO WORKFLOW
+  ══════════════════════════════════════ -->
+  <div class="section-label">🔄 So sánh: Quy trình lấy insight & tạo campaign hiện tại vs với CYO</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px;">
+
+    <!-- HIỆN TẠI -->
+    <div style="background:var(--white);border:2px solid #e5e7eb;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-sm);">
+      <div style="background:#f3f4f6;padding:14px 18px;border-bottom:2px solid #d1d5db;">
+        <div style="font-size:13px;font-weight:800;color:#374151;">📊 Quy trình HIỆN TẠI</div>
+        <div style="font-size:11px;color:#6b7280;margin-top:3px;">Lâu, thủ công, phụ thuộc BI</div>
+      </div>
+      <div style="padding:16px;">
+        <!-- Step 1 -->
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="width:40px;height:40px;background:#dbeafe;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#1e40af;flex-shrink:0;">1</div>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:600;color:#1f2937;margin-bottom:2px;">MKT cần thông tin gì?</div>
+            <div style="font-size:11px;color:#6b7280;">Ví dụ: "KH nào sắp rời?" hoặc "Segment nào mua tốt tháng này?"</div>
+          </div>
+        </div>
+        <div style="margin-left:20px;height:20px;border-left:2px dashed #bfdbfe;"></div>
+
+        <!-- Step 2 -->
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="width:40px;height:40px;background:#fecaca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#991b1b;flex-shrink:0;">2</div>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:600;color:#1f2937;margin-bottom:2px;">⏳ Gửi request tới anh Bình (BI)</div>
+            <div style="font-size:11px;color:#6b7280;">Chờ BI phân tích, viết query, xuất kết quả → <strong>Chờ 1–3 ngày</strong></div>
+          </div>
+        </div>
+        <div style="margin-left:20px;height:20px;border-left:2px dashed #bfdbfe;"></div>
+
+        <!-- Step 3 -->
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="width:40px;height:40px;background:#fecaca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#991b1b;flex-shrink:0;">3</div>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:600;color:#1f2937;margin-bottom:2px;">⏳ Nhận dữ liệu, tự phân tích</div>
+            <div style="font-size:11px;color:#6b7280;">Excel / CSV → tự làm segment hoặc pivot table → <strong>Chờ thêm 1–2 giờ</strong></div>
+          </div>
+        </div>
+        <div style="margin-left:20px;height:20px;border-left:2px dashed #bfdbfe;"></div>
+
+        <!-- Step 4 -->
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="width:40px;height:40px;background:#fecaca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#991b1b;flex-shrink:0;">4</div>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:600;color:#1f2937;margin-bottom:2px;">⏳ Tạo draft content</div>
+            <div style="font-size:11px;color:#6b7280;">Brief → chat / brainstorm với team → tự viết content → <strong>Chờ 2–4 giờ/campaign</strong></div>
+          </div>
+        </div>
+        <div style="margin-left:20px;height:20px;border-left:2px dashed #bfdbfe;"></div>
+
+        <!-- Step 5 -->
+        <div style="display:flex;gap:10px;">
+          <div style="width:40px;height:40px;background:#bbf7d0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#065f46;flex-shrink:0;">5</div>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:600;color:#1f2937;margin-bottom:2px;">✅ Campaign launch</div>
+            <div style="font-size:11px;color:#6b7280;"><strong>Tổng thời gian: 3–7 ngày từ ý tưởng → launch</strong></div>
+          </div>
+        </div>
+      </div>
+      <div style="background:#fef2f2;padding:12px 16px;border-top:1px solid #e5e7eb;font-size:11px;color:#7f1d1d;">
+        ⚠️ <strong>Vấn đề:</strong> Chậm, phụ thuộc BI, khó thay đổi nhanh, khó test nhiều ideas song song
+      </div>
+    </div>
+
+    <!-- VỚI CYO -->
+    <div style="background:var(--white);border:2px solid #10b981;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-sm);">
+      <div style="background:#f0fdf4;padding:14px 18px;border-bottom:2px solid #86efac;">
+        <div style="font-size:13px;font-weight:800;color:#166534;">🚀 Quy trình VỚI CYO</div>
+        <div style="font-size:11px;color:#059669;margin-top:3px;">Nhanh, AI hỗ trợ, MKT tự làm được</div>
+      </div>
+      <div style="padding:16px;">
+        <!-- Step 1 -->
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="width:40px;height:40px;background:#dcfce7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#059669;flex-shrink:0;">1</div>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:600;color:#1f2937;margin-bottom:2px;">Chat tiếng Việt tự nhiên</div>
+            <div style="font-size:11px;color:#6b7280;">"KH nào sắp rời mua hàng lần cuối? Tính AOV trung bình" → nhập CYO chat</div>
+          </div>
+        </div>
+        <div style="margin-left:20px;height:20px;border-left:2px dashed #86efac;"></div>
+
+        <!-- Step 2 -->
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="width:40px;height:40px;background:#dcfce7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#059669;flex-shrink:0;">2</div>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:600;color:#1f2937;margin-bottom:2px;">⚡ AI trả lời ngay</div>
+            <div style="font-size:11px;color:#6b7280;"><strong>&lt; 5 phút</strong> → insight + số liệu cụ thể + recommendation</div>
+          </div>
+        </div>
+        <div style="margin-left:20px;height:20px;border-left:2px dashed #86efac;"></div>
+
+        <!-- Step 3 -->
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="width:40px;height:40px;background:#dcfce7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#059669;flex-shrink:0;">3</div>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:600;color:#1f2937;margin-bottom:2px;">⚡ Tạo segment tự động</div>
+            <div style="font-size:11px;color:#6b7280;">Chat: "Tạo segment KH rời 3 tháng, AOV > 500k" → <strong>&lt; 15 phút</strong></div>
+          </div>
+        </div>
+        <div style="margin-left:20px;height:20px;border-left:2px dashed #86efac;"></div>
+
+        <!-- Step 4 -->
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="width:40px;height:40px;background:#dcfce7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#059669;flex-shrink:0;">4</div>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:600;color:#1f2937;margin-bottom:2px;">⚡ AI draft content cá nhân hóa</div>
+            <div style="font-size:11px;color:#6b7280;">Upload Brand Voice doc → AI draft ZNS/Email → <strong>&lt; 30 phút, giảm 50% thời gian</strong></div>
+          </div>
+        </div>
+        <div style="margin-left:20px;height:20px;border-left:2px dashed #86efac;"></div>
+
+        <!-- Step 5 -->
+        <div style="display:flex;gap:10px;">
+          <div style="width:40px;height:40px;background:#dcfce7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#059669;flex-shrink:0;">5</div>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:600;color:#1f2937;margin-bottom:2px;">✅ Review + Approve</div>
+            <div style="font-size:11px;color:#6b7280;"><strong>Tổng thời gian: &lt; 1 giờ từ ý tưởng → ready launch</strong></div>
+          </div>
+        </div>
+      </div>
+      <div style="background:#f0fdf4;padding:12px 16px;border-top:1px solid #86efac;font-size:11px;color:#166534;">
+        ✅ <strong>Lợi ích:</strong> Nhanh 3-5×, MKT độc lập, dễ A/B test, scale campaign được
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION TL: TIMELINE & MKT TOUCHPOINTS
+  ══════════════════════════════════════ -->
+  <div class="section-label">📅 Timeline dự án — Vai trò & Mốc quan trọng của Team MKT</div>
+
+  <!-- MVP clarification banner -->
+  <div class="disclaimer-banner" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-color:#34D399;">
+    <div class="disclaimer-icon">🚀</div>
+    <div class="disclaimer-body">
+      <div class="disclaimer-title" style="color:#166534;">MVP Go-Live: Tháng 6/2026 — PO Lãm sẽ trực tiếp demo cho Team MKT</div>
+      <div class="disclaimer-text">CYO không phải dự án "xây xong mới thấy". Team MKT tham gia từ đầu để định hình sản phẩm. <strong>Giai đoạn đầu (T1–T4)</strong>: làm việc chủ yếu với <strong>anh Bình (BI Team)</strong> để cung cấp use-case và validate data. PO Lãm điều phối toàn bộ, demo kết quả cuối cùng.</div>
+    </div>
+  </div>
+
+  <!-- Phase timeline cards -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:16px;">
+
+    <!-- Phase 0-1: Kickoff + Interview -->
+    <div style="background:var(--white);border:2px solid #FCAF17;border-radius:var(--r-xl);padding:20px;box-shadow:var(--shadow-sm);">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:#FCAF17;color:white;font-size:10px;font-weight:900;padding:3px 10px;border-radius:var(--r-full);">T1–T2 · 21/04→02/05</span>
+      </div>
+      <div style="font-size:14px;font-weight:800;color:var(--gray-900);margin-bottom:6px;">📋 Cung cấp Use-case & Pain-point</div>
+      <div style="font-size:12px;color:var(--gray-600);line-height:1.6;margin-bottom:10px;">MKT cung cấp danh sách câu hỏi thực tế, validate giả thuyết. <strong>Làm việc với: anh Bình (BI Team)</strong> trong interview session.</div>
+      <div style="font-size:11px;font-weight:700;color:#FCAF17;padding:5px 10px;background:#fff8ec;border-radius:var(--r-sm);">✅ Due: 25/04 — Use-case list v0.1</div>
+    </div>
+
+    <!-- Phase 1: Interview week -->
+    <div style="background:var(--white);border:2px solid var(--yody-navy);border-radius:var(--r-xl);padding:20px;box-shadow:var(--shadow-sm);">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--yody-navy);color:white;font-size:10px;font-weight:900;padding:3px 10px;border-radius:var(--r-full);">T4 · 07–09/05</span>
+      </div>
+      <div style="font-size:14px;font-weight:800;color:var(--gray-900);margin-bottom:6px;">🎙 Interview Session</div>
+      <div style="font-size:12px;color:var(--gray-600);line-height:1.6;margin-bottom:10px;">1–2h/người. MKT Executor mô tả workflow thực tế. <strong>Làm việc với: anh Bình (BI Team) + PO Lãm</strong> dẫn dắt session.</div>
+      <div style="font-size:11px;font-weight:700;color:var(--yody-navy);padding:5px 10px;background:var(--yody-navy-pale);border-radius:var(--r-sm);">⏰ Book lịch cứng — không hoãn</div>
+    </div>
+
+    <!-- Phase 2: Review AI output -->
+    <div style="background:var(--white);border:2px solid var(--info);border-radius:var(--r-xl);padding:20px;box-shadow:var(--shadow-sm);">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--info);color:white;font-size:10px;font-weight:900;padding:3px 10px;border-radius:var(--r-full);">T7 · 26–30/05</span>
+      </div>
+      <div style="font-size:14px;font-weight:800;color:var(--gray-900);margin-bottom:6px;">🔍 Review Output AI (Thực chiến)</div>
+      <div style="font-size:12px;color:var(--gray-600);line-height:1.6;margin-bottom:10px;">MKT dùng thử thực tế, chạy câu hỏi thật. Feedback qua <strong>Công Văn (Bridge)</strong>. Anh Bình validate data accuracy trước khi MKT dùng.</div>
+      <div style="font-size:11px;font-weight:700;color:#1e40af;padding:5px 10px;background:#eff6ff;border-radius:var(--r-sm);">📝 Feedback: ✅ Đúng / ⚠️ Gần đúng / ❌ Sai</div>
+    </div>
+
+    <!-- Phase 3: MVP Demo -->
+    <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid var(--success);border-radius:var(--r-xl);padding:20px;box-shadow:var(--shadow-sm);">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--success);color:white;font-size:10px;font-weight:900;padding:3px 10px;border-radius:var(--r-full);">T8–T9 · 01–12/06</span>
+      </div>
+      <div style="font-size:14px;font-weight:800;color:var(--gray-900);margin-bottom:6px;">⭐ UAT · PO Demo MVP</div>
+      <div style="font-size:12px;color:#166534;line-height:1.6;margin-bottom:10px;"><strong>PO Lãm trực tiếp demo</strong> MVP cho toàn team MKT. MKT tham gia UAT ≥80% scenarios, cho verdict "Go / No-Go".</div>
+      <div style="font-size:11px;font-weight:700;color:#166534;padding:5px 10px;background:rgba(52,211,153,.15);border-radius:var(--r-sm);">🎯 Kỳ vọng: ≥5 active users sau go-live</div>
+    </div>
+
+    <!-- Phase 4: Go-Live -->
+    <div style="background:var(--white);border:2px solid var(--danger);border-radius:var(--r-xl);padding:20px;box-shadow:var(--shadow-sm);">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="background:var(--danger);color:white;font-size:10px;font-weight:900;padding:3px 10px;border-radius:var(--r-full);">T12 · 30/06</span>
+      </div>
+      <div style="font-size:14px;font-weight:800;color:var(--gray-900);margin-bottom:6px;">🚀 Go-Live v1.0</div>
+      <div style="font-size:12px;color:var(--gray-600);line-height:1.6;margin-bottom:10px;">CYO chính thức đưa vào vận hành. MKT là primary user — bắt đầu dùng thực chiến hàng ngày.</div>
+      <div style="font-size:11px;font-weight:700;color:#b91c1c;padding:5px 10px;background:#fef2f2;border-radius:var(--r-sm);">Hard deadline — không extend</div>
+    </div>
+
+  </div>
+
+  <!-- Contact routing table -->
+  <div class="table-wrap" style="margin-bottom:16px;">
+    <table class="agenda-table">
+      <thead><tr><th>Tình huống</th><th>MKT liên hệ ai?</th></tr></thead>
+      <tbody>
+        <tr><td>Câu hỏi về use-case, data, insight (T1–T4)</td><td><strong>Anh Bình (BI Team)</strong></td></tr>
+        <tr><td>Feedback về output AI, lỗi hệ thống</td><td><strong>Công Văn (IT Bridge)</strong></td></tr>
+        <tr><td>Câu hỏi về timeline, scope, ưu tiên tính năng</td><td><strong>PO Lãm</strong></td></tr>
+        <tr><td>Vấn đề kỹ thuật phức tạp</td><td><strong>Công Văn → route đến Dev</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION GANTT: GANTT CHART
+  ══════════════════════════════════════ -->
+  <div class="section-label">📊 Gantt Chart — Tiến độ dự án theo tuần</div>
+
+  <div style="background:var(--white);border:1.5px solid var(--gray-200);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:16px;">
+
+    <!-- Legend -->
+    <div style="display:flex;flex-wrap:wrap;gap:10px;padding:14px 18px 10px;border-bottom:1px solid var(--gray-100);align-items:center;">
+      <span style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gray-400);margin-right:4px;">Nhóm:</span>
+      <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--gray-600);"><span style="width:10px;height:10px;border-radius:3px;background:#A78BFA;display:inline-block;"></span>PO (Lãm)</span>
+      <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--gray-600);"><span style="width:10px;height:10px;border-radius:3px;background:#4A9EFF;display:inline-block;"></span>BI Team (Bình)</span>
+      <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--gray-600);"><span style="width:10px;height:10px;border-radius:3px;background:#34D399;display:inline-block;"></span>Developer (Thắng)</span>
+      <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;color:#92400e;"><span style="width:12px;height:12px;border-radius:3px;background:rgba(252,175,23,.3);border:2px solid #FCAF17;display:inline-block;"></span>Marketing ★</span>
+      <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--gray-600);"><span style="width:10px;height:10px;border-radius:3px;background:#F87171;display:inline-block;"></span>Legal / Critical</span>
+      <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--gray-600);"><span style="width:10px;height:10px;background:#34D399;transform:rotate(45deg);display:inline-block;border-radius:2px;"></span>Milestone</span>
+    </div>
+
+    <!-- Gantt container -->
+    <div style="overflow-x:auto;padding:0 0 4px;">
+      <div id="gantt-agenda" style="min-width:760px;position:relative;"></div>
+    </div>
+
+    <!-- MKT note -->
+    <div style="margin:0;padding:10px 18px 14px;background:rgba(252,175,23,.06);border-top:1px solid rgba(252,175,23,.2);">
+      <div style="font-size:12px;color:var(--gray-700);line-height:1.7;">
+        <strong style="color:#92400e;">★ Team Marketing</strong> tham gia 5 touchpoints chính:
+        <strong>T1</strong> Kick-off →
+        <strong>T2–T4</strong> Interview use-case với anh Bình →
+        <strong>T4–T5</strong> Review AI output (feedback qua Công Văn) →
+        <strong>T7</strong> Dùng thử thực chiến (MVP v0.15) →
+        <strong>T8–T9</strong> UAT + Training →
+        <strong>T12</strong> Go-Live.
+        Giai đoạn <strong>T3 (Holiday)</strong> không có task — mọi deadline trước 25/04 cần hoàn thành trước kỳ nghỉ.
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    const WEEKS = [
+      {n:1,  l:'T1',  d:'14/04', hol:false},
+      {n:2,  l:'T2',  d:'20/04', hol:false},
+      {n:3,  l:'T3',  d:'27/04', hol:true},
+      {n:4,  l:'T4',  d:'05/05', hol:false},
+      {n:5,  l:'T5',  d:'12/05', hol:false},
+      {n:6,  l:'T6',  d:'19/05', hol:false},
+      {n:7,  l:'T7',  d:'26/05', hol:false},
+      {n:8,  l:'T8',  d:'02/06', hol:false},
+      {n:9,  l:'T9',  d:'09/06', hol:false},
+      {n:10, l:'T10', d:'16/06', hol:false},
+      {n:11, l:'T11', d:'23/06', hol:false},
+      {n:12, l:'T12', d:'30/06', hol:false},
+    ];
+    const NW = WEEKS.length;
+    const LW  = 150; // label col px
+    const BRH = 30;  // bar row height px
+    const PHH = 24;  // phase header height px
+
+    /*
+      Data model: each swimlane = one team.
+      bars[] = one bar per entry → renders as one sub-row each.
+      sty: 'normal' | 'crit' | 'ms' (milestone)
+      Special: 'collab' = two-team collab highlight bar
+    */
+    const PHASES = [
+      {
+        label: 'P0 · Khởi động', ph_color: '#3b82f6',
+        lanes: [
+          { team:'PO',     dot:'#A78BFA', bars:[
+            { w:1, w2:2, t:'Kick-off · RACI draft · Interview MKT' },
+          ]},
+          { team:'BI',     dot:'#4A9EFF', bars:[
+            { w:1, w2:1, t:'BQ access ⚠️ critical deadline 17/04', sty:'crit' },
+            { w:2, w2:3, t:'Inventory BQ · làm sạch & dedup data' },
+          ]},
+          { team:'Dev',    dot:'#34D399', bars:[
+            { w:1, w2:2, t:'Architecture blueprint · MCP spec định nghĩa' },
+            { w:1, w2:2, t:'Security baseline + infra setup ≤30/04' },
+          ]},
+          { team:'MKT ★',  dot:'#FCAF17', mkt:true, bars:[
+            { w:1, w2:1, t:'Tham dự Kick-off · nhận brief dự án' },
+            { w:1, w2:2, t:'Tham gia interviews với PO · cung cấp use-case' },
+          ]},
+          { team:'Legal',  dot:'#F87171', bars:[
+            { w:1, w2:1, t:'Kick-off · PII scope brief' },
+            { w:2, w2:2, t:'PII checklist → Dev', sty:'crit' },
+          ]},
+        ]
+      },
+      {
+        label: 'P1 · MCP Handoff — BI × Omega làm việc chặt', ph_color: '#10b981',
+        collab_note: '🔥 Tuần T4: Omega handoff MCP → anh Bình. Đây là thời điểm BI + Omega define chặt nhất — test song song, fix liên tục.',
+        lanes: [
+          { team:'PO',     dot:'#A78BFA', bars:[
+            { w:2, w2:4, t:'Metric Catalog draft · Sprint management' },
+          ]},
+          { team:'BI',     dot:'#4A9EFF', bars:[
+            { w:2, w2:3, t:'Làm sạch data (tiếp tục)' },
+            { w:4, w2:5, t:'🔥 Nhận MCP → test + define data schema chặt với Omega', sty:'collab' },
+          ]},
+          { team:'Dev',    dot:'#34D399', bars:[
+            { w:3, w2:4, t:'🔥 Hoàn thiện MCP framework + Claude response ≤07/05', sty:'crit' },
+            { w:4, w2:4, t:'⭐ Handoff MCP → anh Bình 07–08/05', sty:'ms' },
+            { w:4, w2:5, t:'Fix feedback liên tục từ BI · vá lỗi realtime' },
+          ]},
+          { team:'MKT ★',  dot:'#FCAF17', mkt:true, bars:[
+            { w:4, w2:5, t:'Interview use-case chuyên sâu với anh Bình (BI Team)' },
+          ]},
+          { team:'Legal',  dot:'#F87171', bars:[
+            { w:4, w2:4, t:'Review PII filter design · Governance', sty:'crit' },
+          ]},
+        ]
+      },
+      {
+        label: 'P2–P3 · Chuẩn hóa + Tối ưu AI → MVP v0.15', ph_color: '#8b5cf6',
+        lanes: [
+          { team:'PO',     dot:'#A78BFA', bars:[
+            { w:4, w2:7, t:'Sprint planning · Demo script · Weekly reports' },
+          ]},
+          { team:'BI',     dot:'#4A9EFF', bars:[
+            { w:4, w2:5, t:'Data Dictionary v1 + Benchmark AI accuracy', sty:'crit' },
+            { w:5, w2:7, t:'Tracking setup · Dictionary v1.1 · Access audit' },
+          ]},
+          { team:'Dev',    dot:'#34D399', bars:[
+            { w:4, w2:5, t:'Sync ES 6M docs + Build Agents + 8 MCP tools' },
+            { w:5, w2:6, t:'Tối ưu AI engine → candidate v0.15' },
+            { w:6, w2:6, t:'🔥 Hypercare Bình + Thắng · 26–30/05' },
+            { w:7, w2:7, t:'⭐ MVP v0.15 Ra mắt · 30/05', sty:'ms' },
+          ]},
+          { team:'MKT ★',  dot:'#FCAF17', mkt:true, bars:[
+            { w:6, w2:7, t:'★ Review output AI · feedback qua Công Văn' },
+            { w:7, w2:7, t:'★ Dùng thử thực chiến MVP v0.15 · 30/05' },
+          ]},
+          { team:'Legal',  dot:'#F87171', bars:[
+            { w:5, w2:6, t:'UAT Security review · PII verify' },
+            { w:6, w2:7, t:'DPIA draft bắt đầu' },
+          ]},
+        ]
+      },
+      {
+        label: 'P4 · UAT · Go-Live · Baseline', ph_color: '#10b981',
+        lanes: [
+          { team:'PO',     dot:'#A78BFA', bars:[
+            { w:8,  w2:9,  t:'Observe UAT · Training ×2' },
+            { w:10, w2:12, t:'Go-live checklist · Reports #6–10' },
+          ]},
+          { team:'BI',     dot:'#4A9EFF', bars:[
+            { w:8,  w2:9,  t:'AI engine v1.0 hoàn thiện' },
+            { w:11, w2:11, t:'Data audit T11' },
+            { w:12, w2:12, t:'⭐ Go-Live v1.0 · 30/06', sty:'ms' },
+          ]},
+          { team:'Dev',    dot:'#34D399', bars:[
+            { w:8,  w2:9,  t:'Bug fix + full features Phase 2' },
+            { w:10, w2:10, t:'Security final + DPIA support' },
+          ]},
+          { team:'MKT ★',  dot:'#FCAF17', mkt:true, bars:[
+            { w:8,  w2:9,  t:'★ UAT chính thức · ≥80% scenarios · 4–8h/người' },
+            { w:9,  w2:9,  t:'★ Training ×2 buổi (Cowork + Dashboard)' },
+            { w:12, w2:12, t:'★ Go-Live 30/06 · Primary user CYO' },
+          ]},
+          { team:'Legal',  dot:'#F87171', bars:[
+            { w:10, w2:10, t:'DPIA sign-off ≤T10 ⚠️', sty:'crit' },
+            { w:12, w2:12, t:'Go-live compliance cleared' },
+          ]},
+        ]
+      },
+    ];
+
+    const g = document.getElementById('gantt-agenda');
+
+    /* Convert week number to left% / width% */
+    function L(w)      { return ((w - 1) / NW * 100).toFixed(3) + '%'; }
+    function W(w, w2)  { return ((w2 - w + 1) / NW * 100).toFixed(3) + '%'; }
+
+    /* Column grid overlay for a bar row */
+    function colGrid() {
+      let s = '<div style="position:absolute;inset:0;display:flex;pointer-events:none;">';
+      WEEKS.forEach(wk => {
+        s += '<div style="flex:1;border-left:0.5px solid ' + (wk.hol ? 'rgba(252,165,165,.35)' : 'rgba(229,231,235,.6)') + ';background:' + (wk.hol ? 'rgba(254,226,226,.1)' : 'transparent') + '"></div>';
+      });
+      s += '</div>';
+      return s;
+    }
+
+    let html = '';
+
+    /* ── Week header ── */
+    html += '<div style="display:flex;border-bottom:2px solid #e5e7eb;background:#fff;position:sticky;top:0;z-index:3;">';
+    html += '<div style="width:' + LW + 'px;flex-shrink:0;padding:8px 14px;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#9ca3af;display:flex;align-items:flex-end;">Nhóm / Task</div>';
+    html += '<div style="flex:1;display:flex;">';
+    WEEKS.forEach(wk => {
+      const hol = wk.hol;
+      html += '<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:6px;gap:1px;border-left:0.5px solid #e5e7eb;background:' + (hol ? 'rgba(254,226,226,.5)' : '#fff') + '">';
+      html += '<span style="font-size:11px;font-weight:800;color:' + (hol ? '#dc2626' : '#111827') + '">' + wk.l + '</span>';
+      html += '<span style="font-size:9px;color:' + (hol ? '#f87171' : '#9ca3af') + '">' + wk.d + '</span>';
+      if (hol) html += '<span style="font-size:8px;font-weight:700;color:#dc2626;letter-spacing:.5px">HOLIDAY</span>';
+      html += '</div>';
+    });
+    html += '</div></div>';
+
+    PHASES.forEach(ph => {
+      /* Phase header row */
+      html += '<div style="display:flex;min-height:' + PHH + 'px;align-items:center;background:' + ph.ph_color + '18;border-top:2px solid ' + ph.ph_color + '55;border-bottom:1px solid ' + ph.ph_color + '33;">';
+      html += '<div style="flex-shrink:0;padding:5px 14px;font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:' + ph.ph_color + ';white-space:nowrap;">' + ph.label + '</div>';
+      html += '<div style="flex:1;display:flex;">';
+      WEEKS.forEach(wk => {
+        html += '<div style="flex:1;border-left:0.5px solid ' + ph.ph_color + '22;background:' + (wk.hol ? 'rgba(254,226,226,.12)' : 'transparent') + '"></div>';
+      });
+      html += '</div></div>';
+
+      /* Collab callout if exists */
+      if (ph.collab_note) {
+        html += '<div style="display:flex;min-height:28px;align-items:center;background:rgba(16,185,129,.06);border-bottom:1px solid rgba(16,185,129,.2);">';
+        html += '<div style="width:' + LW + 'px;flex-shrink:0;"></div>';
+        html += '<div style="flex:1;padding:5px 12px;font-size:11px;font-weight:600;color:#065f46;line-height:1.5;">' + ph.collab_note + '</div>';
+        html += '</div>';
+      }
+
+      ph.lanes.forEach(lane => {
+        const isMkt = !!lane.mkt;
+        const accentColor = isMkt ? '#FCAF17' : lane.dot;
+
+        lane.bars.forEach((b, bi) => {
+          const isFirst = bi === 0;
+          const isLast  = bi === lane.bars.length - 1;
+          const rowBg   = isMkt ? 'rgba(252,175,23,.05)' : 'transparent';
+          const borderB = isLast
+            ? '1px solid #e5e7eb'
+            : '0.5px solid ' + (isMkt ? 'rgba(252,175,23,.12)' : '#f9fafb');
+
+          html += '<div style="display:flex;height:' + BRH + 'px;align-items:center;background:' + rowBg + ';border-bottom:' + borderB + ';">';
+
+          /* Label column */
+          html += '<div style="width:' + LW + 'px;flex-shrink:0;display:flex;align-items:center;gap:7px;padding:0 10px 0 14px;">';
+          if (isFirst) {
+            html += '<span style="width:8px;height:8px;border-radius:50%;flex-shrink:0;background:' + accentColor + ';' + (isMkt ? 'outline:2.5px solid rgba(252,175,23,.4);outline-offset:1px;' : '') + '"></span>';
+            html += '<span style="font-size:11px;font-weight:' + (isMkt ? '800' : '600') + ';color:' + (isMkt ? '#92400e' : '#374151') + ';white-space:nowrap;">' + lane.team + '</span>';
+          } else {
+            html += '<span style="width:8px;flex-shrink:0;"></span>';
+            html += '<span style="width:16px;height:1.5px;border-radius:1px;background:' + accentColor + '33;flex-shrink:0;"></span>';
+          }
+          html += '</div>';
+
+          /* Bar track */
+          html += '<div style="flex:1;position:relative;height:100%;">';
+          html += colGrid();
+
+          if (b.sty === 'ms') {
+            /* Milestone: diamond + label */
+            const msLeft = 'calc(' + L(b.w) + ' + 2px)';
+            html += '<div style="position:absolute;left:' + msLeft + ';top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:8px;">';
+            html += '<div style="width:13px;height:13px;background:#10b981;border-radius:2px;transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 0 2px rgba(16,185,129,.25);"></div>';
+            html += '<span style="font-size:10px;font-weight:700;color:#065f46;white-space:nowrap;">' + b.t + '</span>';
+            html += '</div>';
+          } else {
+            /* Regular bar */
+            let bg, border, textColor, fw;
+            if (b.sty === 'crit') {
+              bg = '#fee2e2'; border = '1.5px solid #f87171'; textColor = '#7f1d1d'; fw = '700';
+            } else if (b.sty === 'collab') {
+              bg = 'rgba(16,185,129,.15)'; border = '2px solid #10b981'; textColor = '#065f46'; fw = '700';
+            } else if (isMkt) {
+              bg = 'rgba(252,175,23,.18)'; border = '2px solid #FCAF17'; textColor = '#78350f'; fw = '700';
+            } else {
+              bg = lane.dot + '1A'; border = '1px solid ' + lane.dot + '70'; textColor = '#1f2937'; fw = '400';
+            }
+            html += '<div style="position:absolute;left:' + L(b.w) + ';width:' + W(b.w, b.w2) + ';top:50%;transform:translateY(-50%);height:22px;background:' + bg + ';border:' + border + ';border-radius:5px;display:flex;align-items:center;padding:0 9px;box-sizing:border-box;">';
+            html += '<span style="font-size:10px;font-weight:' + fw + ';color:' + textColor + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;">' + b.t + '</span>';
+            html += '</div>';
+          }
+
+          html += '</div></div>'; /* close bar track + row */
+        });
+      });
+    });
+
+    g.innerHTML = html;
+  })();
+  </script>
+
+  <!-- ══════════════════════════════════════
+       SECTION: CHI TIẾT CÁC GIAI ĐOẠN TEST & VALIDATE
+  ══════════════════════════════════════ -->
+  <div class="section-label">🧪 Chi tiết 2 vòng test & validate trước Go-Live (30/06)</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;">
+
+    <!-- VÒNG 1 -->
+    <div style="background:var(--white);border:2px solid #FCAF17;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-sm);">
+      <div style="background:linear-gradient(135deg,#fef3c7,#fff8ec);padding:14px 18px;border-bottom:1px solid rgba(245,166,35,.3);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <span style="font-size:20px;">🔍</span>
+          <div>
+            <div style="font-size:13px;font-weight:800;color:#92400e;">VÒNG 1 — Review Output AI</div>
+            <div style="font-size:11px;color:#b45309;">26–30/05/2026 · Tuần T7</div>
+          </div>
+        </div>
+      </div>
+      <div style="padding:16px;">
+        <div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:10px;text-transform:uppercase;letter-spacing:.8px;">Mục tiêu</div>
+        <div style="font-size:12px;color:#4b5563;line-height:1.7;margin-bottom:14px;">Dùng thử thực chiến MVP v0.15 với câu hỏi & use-case thực tế. Đánh giá output AI trước khi đưa vào UAT chính thức.</div>
+        
+        <div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:10px;text-transform:uppercase;letter-spacing:.8px;">Các subtask MKT</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
+          <div style="display:flex;align-items:flex-start;gap:8px;padding:8px 10px;background:rgba(252,175,23,.06);border-radius:var(--r-md);border-left:3px solid #FCAF17;">
+            <span style="font-size:16px;flex-shrink:0;">📝</span>
+            <div>
+              <div style="font-size:11px;font-weight:600;color:#92400e;">Chuẩn bị 20–30 câu hỏi thực tế</div>
+              <div style="font-size:11px;color:#6b7280;margin-top:2px;">Từ các tình huống làm việc hằng ngày của MKT (UC5, UC2, UC7)</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:8px;padding:8px 10px;background:rgba(252,175,23,.06);border-radius:var(--r-md);border-left:3px solid #FCAF17;">
+            <span style="font-size:16px;flex-shrink:0;">🔬</span>
+            <div>
+              <div style="font-size:11px;font-weight:600;color:#92400e;">Dùng thử AI, đánh giá mỗi output</div>
+              <div style="font-size:11px;color:#6b7280;margin-top:2px;"><strong>✅ Đúng</strong> / <strong>⚠️ Gần đúng</strong> / <strong>❌ Sai</strong> kèm lý do cụ thể</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:8px;padding:8px 10px;background:rgba(252,175,23,.06);border-radius:var(--r-md);border-left:3px solid #FCAF17;">
+            <span style="font-size:16px;flex-shrink:0;">📤</span>
+            <div>
+              <div style="font-size:11px;font-weight:600;color:#92400e;">Feedback qua Công Văn (Bridge)</div>
+              <div style="font-size:11px;color:#6b7280;margin-top:2px;">Anh Bình validate data accuracy song song, fix issues thực tế</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:10px;text-transform:uppercase;letter-spacing:.8px;">Deliverable</div>
+        <div style="font-size:12px;color:#4b5563;padding:10px;background:#f9fafb;border-left:3px solid #FCAF17;border-radius:var(--r-md);">
+          📊 Feedback summary: % output đúng / gần đúng / sai + danh sách issues để fix trước UAT chính thức
+        </div>
+      </div>
+    </div>
+
+    <!-- VÒNG 2 -->
+    <div style="background:var(--white);border:2px solid #10b981;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-sm);">
+      <div style="background:linear-gradient(135deg,#dcfce7,#f0fdf4);padding:14px 18px;border-bottom:1px solid rgba(16,185,129,.3);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <span style="font-size:20px;">⭐</span>
+          <div>
+            <div style="font-size:13px;font-weight:800;color:#166534;">VÒNG 2 — UAT chính thức</div>
+            <div style="font-size:11px;color:#059669;">03–13/06/2026 · Tuần T8–T9</div>
+          </div>
+        </div>
+      </div>
+      <div style="padding:16px;">
+        <div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:10px;text-transform:uppercase;letter-spacing:.8px;">Mục tiêu</div>
+        <div style="font-size:12px;color:#4b5563;line-height:1.7;margin-bottom:14px;">Test ≥80% kịch bản UAT (GIVEN-WHEN-THEN). Cho verdict <strong>"Go / No-Go"</strong> trước go-live 30/06.</div>
+        
+        <div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:10px;text-transform:uppercase;letter-spacing:.8px;">Các subtask MKT</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
+          <div style="display:flex;align-items:flex-start;gap:8px;padding:8px 10px;background:rgba(16,185,129,.06);border-radius:var(--r-md);border-left:3px solid #10b981;">
+            <span style="font-size:16px;flex-shrink:0;">🎯</span>
+            <div>
+              <div style="font-size:11px;font-weight:600;color:#166534;">Thực thi 80+ test scenarios</div>
+              <div style="font-size:11px;color:#6b7280;margin-top:2px;">GIVEN-WHEN-THEN format. Test tất cả UC: Query (UC5), Segment (UC2), Content (UC7), Approval (UC8)</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:8px;padding:8px 10px;background:rgba(16,185,129,.06);border-radius:var(--r-md);border-left:3px solid #10b981;">
+            <span style="font-size:16px;flex-shrink:0;">⏱️</span>
+            <div>
+              <div style="font-size:11px;font-weight:600;color:#166534;">Cần block 4–8h/người (MKT Executor)</div>
+              <div style="font-size:11px;color:#6b7280;margin-top:2px;">Ngồi cạnh PO Lãm. Ghi chép issues, log defects từng chi tiết</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:8px;padding:8px 10px;background:rgba(16,185,129,.06);border-radius:var(--r-md);border-left:3px solid #10b981;">
+            <span style="font-size:16px;flex-shrink:0;">✍️</span>
+            <div>
+              <div style="font-size:11px;font-weight:600;color:#166534;">Cho verdict Go / No-Go</div>
+              <div style="font-size:11px;color:#6b7280;margin-top:2px;">Confirm sẵn sàng go-live hoặc yêu cầu fix trước</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:10px;text-transform:uppercase;letter-spacing:.8px;">Deliverable</div>
+        <div style="font-size:12px;color:#4b5563;padding:10px;background:#f0fdf4;border-left:3px solid #10b981;border-radius:var(--r-md);">
+          ✅ UAT report: ≥80% scenarios pass + Go/No-Go verdict từ MKT Lead + PO Lãm
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION 2: FLOW DIAGRAMS
+  ══════════════════════════════════════ -->
+  <div class="section-label">🔁 Flow diagram — Cách CYO MCP hoạt động</div>
+
+  <!-- UC5 FLOW -->
+  <div class="flow-wrap">
+    <div class="flow-title">
+      <span class="flow-title-badge" style="background:var(--yody-navy);">UC5</span>
+      Insight Discovery — Luồng chat hỏi AI
+    </div>
+    <div style="overflow-x:auto; padding-bottom:8px;">
+      <div class="flow-row">
+        <!-- Step 1 -->
+        <div class="flow-col">
+          <div class="fn fn-user">
+            <div class="fn-icon">👩‍💼</div>
+            <div class="fn-label">MKT User</div>
+            <div class="fn-sub">Chat tiếng Việt</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <!-- Step 2 -->
+        <div class="flow-col">
+          <div class="fn fn-navy">
+            <div class="fn-icon">💬</div>
+            <div class="fn-label">CYO MCP</div>
+            <div class="fn-sub">Nhận & parse query</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <!-- Step 3 -->
+        <div class="flow-col">
+          <div class="fn fn-agent">
+            <div class="fn-icon">🔍</div>
+            <div class="fn-label">DataAnalyst Agent</div>
+            <div class="fn-sub">Query Elasticsearch 6M records</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <!-- Step 4 -->
+        <div class="flow-col">
+          <div class="fn fn-agent">
+            <div class="fn-icon">🧠</div>
+            <div class="fn-label">InsightGen Agent</div>
+            <div class="fn-sub">Phân tích RFM · Cohort · Trend</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <!-- Step 5 -->
+        <div class="flow-col">
+          <div class="fn fn-green">
+            <div class="fn-icon">✅</div>
+            <div class="fn-label">QualityCheck Agent</div>
+            <div class="fn-sub">Validate số liệu · chống hallucination</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <!-- Step 6 -->
+        <div class="flow-col">
+          <div class="fn fn-user">
+            <div class="fn-icon">📊</div>
+            <div class="fn-label">Kết quả trả về</div>
+            <div class="fn-sub">Số · bảng · phân tích · gợi ý</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:16px; padding:10px 14px; background:var(--gray-50); border-radius:var(--r-md); font-size:12px; color:var(--gray-500); line-height:1.6;">
+      💬 <strong>Ví dụ câu hỏi MKT:</strong> "Tháng này KH nào chưa mua lại từ 60 ngày trở lên?" → AI query ES → phân tích → trả về danh sách + gợi ý campaign win-back
+    </div>
+  </div>
+
+  <!-- UC2 FLOW -->
+  <div class="flow-wrap">
+    <div class="flow-title">
+      <span class="flow-title-badge" style="background:var(--yody-yellow-dark);">UC2</span>
+      Segment Builder — Luồng tạo nhóm khách hàng
+    </div>
+    <div style="overflow-x:auto; padding-bottom:8px;">
+      <div class="flow-row">
+        <div class="flow-col">
+          <div class="fn fn-user">
+            <div class="fn-icon">👩‍💼</div>
+            <div class="fn-label">MKT mô tả segment</div>
+            <div class="fn-sub">"KH mua polo HN, chưa mua 30 ngày"</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <div class="flow-col">
+          <div class="fn fn-agent">
+            <div class="fn-icon">💬</div>
+            <div class="fn-label">SegmentChat Agent</div>
+            <div class="fn-sub">Tiếng Việt → Filter logic</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <div class="flow-col">
+          <div class="fn fn-navy">
+            <div class="fn-icon">🔎</div>
+            <div class="fn-label">Elasticsearch Query</div>
+            <div class="fn-sub">Áp filter lên 6M records</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <div class="flow-col">
+          <div class="fn fn-blue">
+            <div class="fn-icon">👁️</div>
+            <div class="fn-label">Preview Segment</div>
+            <div class="fn-sub">"Tìm được X KH phù hợp"</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <div class="flow-col">
+          <div class="fn fn-decision">
+            <div class="fn-icon">❓</div>
+            <div class="fn-label">MKT xác nhận?</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <div class="flow-col">
+          <div class="fn fn-green">
+            <div class="fn-icon">📤</div>
+            <div class="fn-label">Export</div>
+            <div class="fn-sub">Zalo / SMS / FB Ads / Excel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+      <div style="padding:6px 12px; background:var(--yody-yellow-pale); border:1px solid rgba(245,166,35,.3); border-radius:var(--r-md); font-size:11px; color:var(--yody-yellow-dark); font-weight:600;">⚠️ Nếu số lượng &lt; ngưỡng → AI cảnh báo và gợi ý nới rộng điều kiện</div>
+      <div style="padding:6px 12px; background:var(--yody-navy-pale); border:1px solid rgba(43,45,143,.15); border-radius:var(--r-md); font-size:11px; color:var(--yody-navy); font-weight:600;">🔒 Chỉ gửi Customer ID lên AI — PII ở lại on-premise</div>
+    </div>
+  </div>
+
+  <!-- UC7 FLOW -->
+  <div class="flow-wrap">
+    <div class="flow-title">
+      <span class="flow-title-badge" style="background:var(--success);">UC7</span>
+      Content Recommender — Luồng AI gợi ý nội dung
+    </div>
+    <div style="overflow-x:auto; padding-bottom:8px;">
+      <div class="flow-row">
+        <div class="flow-col">
+          <div class="fn fn-user">
+            <div class="fn-icon">📋</div>
+            <div class="fn-label">Segment đã tạo</div>
+            <div class="fn-sub">Từ UC2</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <div class="flow-col">
+          <div class="fn fn-blue">
+            <div class="fn-icon">⚙️</div>
+            <div class="fn-label">Chọn kênh & mục tiêu</div>
+            <div class="fn-sub">ZNS · SMS · Email · Push</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <div class="flow-col">
+          <div class="fn fn-agent">
+            <div class="fn-icon">✍️</div>
+            <div class="fn-label">ContentGen Agent</div>
+            <div class="fn-sub">KH profile + Brand Voice + Kênh</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <div class="flow-col">
+          <div class="fn fn-navy">
+            <div class="fn-icon">📝</div>
+            <div class="fn-label">Draft content</div>
+            <div class="fn-sub">Biến thể A · B (nếu cần)</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <div class="flow-col">
+          <div class="fn fn-user">
+            <div class="fn-icon">👀</div>
+            <div class="fn-label">MKT review</div>
+            <div class="fn-sub">Chỉnh sửa tự do</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <div class="flow-col">
+          <div class="fn fn-green">
+            <div class="fn-icon">📨</div>
+            <div class="fn-label">Gửi sang UC8</div>
+            <div class="fn-sub">Approval Workflow</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:12px; padding:10px 14px; background:var(--gray-50); border-radius:var(--r-md); font-size:12px; color:var(--gray-500); line-height:1.6;">
+      💡 <strong>ContentGen</strong> tham chiếu: (1) hành vi mua lịch sử của KH trong segment, (2) kênh gửi để điều chỉnh độ dài, (3) Brand Voice YODY đã được định nghĩa trước
+    </div>
+  </div>
+
+  <!-- UC8 FLOW -->
+  <div class="flow-wrap">
+    <div class="flow-title">
+      <span class="flow-title-badge" style="background:var(--info);">UC8</span>
+      Approval Workflow — Luồng duyệt campaign
+    </div>
+    <div style="overflow-x:auto; padding-bottom:8px;">
+      <div class="flow-row">
+        <div class="flow-col">
+          <div class="fn fn-navy">
+            <div class="fn-icon">📦</div>
+            <div class="fn-label">Campaign Package</div>
+            <div class="fn-sub">Segment + Content + Kênh</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <div class="flow-col">
+          <div class="fn fn-blue">
+            <div class="fn-icon">📤</div>
+            <div class="fn-label">Submit duyệt</div>
+            <div class="fn-sub">MKT Executor gửi</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <div class="flow-col">
+          <div class="fn fn-user">
+            <div class="fn-icon">🔔</div>
+            <div class="fn-label">Thông báo</div>
+            <div class="fn-sub">Zalo · Slack · Email</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <div class="flow-col">
+          <div class="fn fn-agent">
+            <div class="fn-icon">👁️</div>
+            <div class="fn-label">MKT Lead review</div>
+            <div class="fn-sub">Content · Segment · Kênh</div>
+          </div>
+        </div>
+        <div class="fa">→</div>
+        <div class="flow-col">
+          <div class="fn fn-decision">
+            <div class="fn-icon">❓</div>
+            <div class="fn-label">Duyệt?</div>
+          </div>
+        </div>
+      </div>
+      <!-- Branch từ decision -->
+      <div style="margin-top:8px; margin-left:calc(5 * 130px + 5 * 26px); display:flex; gap:32px;">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+          <div style="font-size:11px; font-weight:700; color:var(--success);">✓ Duyệt</div>
+          <div style="width:1px; height:20px; background:var(--success);"></div>
+          <div class="fn fn-green" style="min-width:100px;">
+            <div class="fn-icon">🚀</div>
+            <div class="fn-label">Gửi campaign</div>
+            <div class="fn-sub">System tự động</div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+          <div style="font-size:11px; font-weight:700; color:var(--danger);">✗ Từ chối</div>
+          <div style="width:1px; height:20px; background:var(--danger);"></div>
+          <div class="fn" style="background:#fef2f2; border:1.5px solid var(--danger); color:#991b1b; min-width:100px;">
+            <div class="fn-icon">↩️</div>
+            <div class="fn-label">Trả về chỉnh sửa</div>
+            <div class="fn-sub">Ghi chú lý do</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:16px; display:flex; gap:8px; flex-wrap:wrap;">
+      <div style="padding:6px 12px; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:var(--r-md); font-size:11px; color:#166534; font-weight:600;">✅ Human-in-the-loop bắt buộc — AI không tự gửi mà không có người duyệt</div>
+      <div style="padding:6px 12px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:var(--r-md); font-size:11px; color:#1e40af; font-weight:600;">⏱ Fast-track cho campaign nhỏ hoặc template đã approved trước</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION 3: OBJECTIVES
+  ══════════════════════════════════════ -->
+  <div class="section-label">🎯 Mục tiêu buổi làm việc</div>
+  <div class="objectives-grid">
+    <div class="obj-card"><div class="obj-icon" style="background:var(--yody-navy-pale);">🧭</div><p>MKT hiểu <strong>CYO MCP làm được gì</strong> bằng ngôn ngữ business — không kỹ thuật</p></div>
+    <div class="obj-card"><div class="obj-icon" style="background:var(--yody-yellow-pale);">📋</div><p>Thu thập <strong>≥ 10 use-case</strong> có độ ưu tiên từ MKT làm đầu vào phát triển</p></div>
+    <div class="obj-card"><div class="obj-icon" style="background:#f0fdf4;">🔁</div><p>Validate các <strong>giả thuyết</strong> về KH YODY — đúng hay sai sẽ ảnh hưởng thiết kế hệ thống</p></div>
+    <div class="obj-card"><div class="obj-icon" style="background:#eff6ff;">💬</div><p>Xác định <strong>3–5 câu hỏi MKT hỏi thực tế hằng ngày</strong> làm test case cho AI</p></div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION 4: AGENDA
+  ══════════════════════════════════════ -->
+  <div class="section-label">🗓 Agenda chi tiết — 90 phút</div>
+  <div class="agenda-progress">
+    <div class="agenda-progress-seg" style="width:11%;background:var(--yody-navy);"></div>
+    <div class="agenda-progress-seg" style="width:11%;background:var(--yody-navy-light);"></div>
+    <div class="agenda-progress-seg" style="width:28%;background:var(--yody-navy);"></div>
+    <div class="agenda-progress-seg" style="width:17%;background:var(--success);"></div>
+    <div class="agenda-progress-seg" style="width:17%;background:var(--yody-yellow);"></div>
+    <div class="agenda-progress-seg" style="width:16%;background:var(--info);"></div>
+  </div>
+  <div class="table-wrap">
+    <table class="agenda-table">
+      <thead><tr><th style="width:148px;">Thời gian</th><th>Nội dung</th><th style="width:148px;">Owner</th></tr></thead>
+      <tbody>
+        <tr><td><span class="time-badge">00 – 10 phút</span></td><td><strong>Set the scene</strong> — CYO MCP là gì, giải quyết vấn đề gì cho MKT? Trình bày 4 luồng chính bằng flow diagram</td><td><span class="owner-badge">⭐ Lãm</span></td></tr>
+        <tr><td><span class="time-badge">10 – 20 phút</span></td><td><strong>Validate giả thuyết</strong> — Cùng MKT xác nhận các giả thuyết về hành vi KH YODY có đúng không</td><td><span class="owner-badge">MKT + Lãm</span></td></tr>
+        <tr><td><span class="time-badge">20 – 45 phút</span></td><td><strong>Deep-dive UC5 + UC2</strong> — Insight query & Segment builder: khai thác nhu cầu thực tế</td><td><span class="owner-badge">MKT + Lãm</span></td></tr>
+        <tr><td><span class="time-badge">45 – 60 phút</span></td><td><strong>Deep-dive UC7 + UC8</strong> — Content gợi ý & luồng duyệt campaign thực tế của team</td><td><span class="owner-badge">MKT + Lãm</span></td></tr>
+        <tr><td><span class="time-badge">60 – 75 phút</span></td><td><strong>Prioritization</strong> — MKT vote top use-case quan trọng nhất cần build trước</td><td><span class="owner-badge">🗳 MKT</span></td></tr>
+        <tr><td><span class="time-badge">75 – 90 phút</span></td><td><strong>Align & Next steps</strong> — Chốt output list, assign owner + deadline cụ thể</td><td><span class="owner-badge">⭐ Lãm</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION 5: REQUIREMENTS QUESTIONS
+  ══════════════════════════════════════ -->
+  <div class="section-label">💬 Bộ câu hỏi requirements — theo từng UC</div>
+
+  <!-- UC5 -->
+  <div class="uc-block">
+    <div class="uc-header" onclick="toggle('uc5')">
+      <div class="uc-accent-bar" style="background:var(--yody-navy);"></div>
+      <span class="uc-badge" style="background:var(--yody-navy);">UC5</span>
+      <div class="uc-title">
+        <div class="uc-title-main">Insight Discovery — Chat hỏi AI</div>
+        <div class="uc-subtitle">9 câu hỏi · Pain points · Use-cases · Flow chốt</div>
+      </div>
+      <div class="uc-toggle open" id="toggle-uc5">▾</div>
+    </div>
+    <div class="uc-purpose">🎯 Mục tiêu: Hiểu MKT đang tự hỏi những câu gì hằng ngày — và hiện tại tốn bao lâu để có câu trả lời. <strong>Kết quả sẽ được anh Bình (BI Team) dùng để validate data mart và đảm bảo hệ thống trả lời đúng.</strong></div>
+    <div class="uc-body open" id="body-uc5">
+      <div class="insight-callout">
+        <div class="insight-callout-icon">💡</div>
+        <div class="insight-callout-body"><strong>Giả thuyết cần confirm:</strong> MKT đang mất nhiều thời gian để lấy insight vì phải chờ BI/IT. Nếu đúng → đây là pain point lớn nhất mà UC5 giải quyết. <strong>Giai đoạn đầu MKT sẽ làm việc trực tiếp với anh Bình</strong> để align về metric definition trước khi AI trả lời.</div>
+      </div>
+      <div class="q-group">
+        <div class="q-group-title">🔍 Khai thác pain point — chia sẻ với anh Bình & PO Lãm</div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-navy);">1</div><div><div class="q-text">Trong 1 tuần làm việc, bạn thường cần biết thông tin gì về khách hàng nhiều nhất?</div><div class="q-example">📌 Anh Bình sẽ kiểm tra xem data mart đã có đủ những metric này chưa</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-navy);">2</div><div><div class="q-text">Hiện tại bạn đang lấy thông tin đó từ đâu? Quy trình cụ thể là gì? Mất bao lâu?</div><div class="q-example">VD: chờ anh Bình / tự kéo Excel / nhờ IT xuất báo cáo — thời gian thực tế từ lúc cần → nhận được</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-navy);">3</div><div><div class="q-text">Có trường hợp nào bạn cần số liệu gấp nhưng phải chờ BI / IT không? Chờ bao lâu?</div><div class="q-example">📌 Con số này là KPI baseline để đo ROI của CYO — anh Bình cần biết để set benchmark</div></div></div>
+      </div>
+      <div class="q-group">
+        <div class="q-group-title">💡 Khai thác use-case — input trực tiếp cho anh Bình build data model</div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-navy);">4</div><div><div class="q-text">Nếu được hỏi AI bất cứ câu gì về khách hàng, bạn muốn hỏi gì nhất?</div><div class="q-example">VD: "Tháng này KH nào có khả năng rời đi cao nhất?" / "KH VIP đang mua gì nhiều nhất?" — Anh Bình sẽ xác nhận data nào có sẵn</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-navy);">5</div><div><div class="q-text">Bạn thường phân tích nhóm KH nào trong công việc hàng ngày?</div><div class="q-example">VD: KH mua lần đầu / KH quay lại / KH VIP / KH theo khu vực / KH theo sản phẩm — anh Bình cần list này để chuẩn bị segment template</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-navy);">6</div><div>
+          <div class="q-text">Hiện tại YODY có tracking hành vi KH xem website / app trước khi mua ngoài cửa hàng không?</div>
+          <div class="q-insight">📌 Validate giả thuyết ROPO — nếu có data này, anh Bình và CYO có thể cung cấp insight cross-channel rất giá trị</div>
+        </div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-navy);">7</div><div><div class="q-text">Bạn có cần biết KH đến từ kênh nào (Direct / Organic / Paid / Social) để điều chỉnh campaign không?</div><div class="q-example">VD: biết KH từ Google Shopping vs Facebook có hành vi mua khác nhau không? — Anh Bình cần biết để ưu tiên enrich data nào trước</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-navy);">8</div><div><div class="q-text">Kết quả AI trả lời cần ở dạng nào để bạn dùng được ngay?</div><div class="q-example">VD: con số đơn lẻ / bảng so sánh / đoạn phân tích / biểu đồ trend / tổng hợp tất cả?</div></div></div>
+      </div>
+      <div class="flow-box">
+        <div class="flow-box-icon">🔁</div>
+        <div class="flow-box-content">
+          <div class="flow-box-label">Câu hỏi chốt flow</div>
+          <p><strong>9.</strong> Sau khi nhận insight từ AI → bạn làm gì tiếp theo với kết quả đó? <em>(báo cáo / xuất file / tạo campaign / chia sẻ team nào?)</em> — <strong>PO Lãm sẽ dùng để thiết kế output format</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UC2 -->
+  <div class="uc-block">
+    <div class="uc-header" onclick="toggle('uc2')">
+      <div class="uc-accent-bar" style="background:var(--yody-yellow);"></div>
+      <span class="uc-badge" style="background:var(--yody-yellow-dark);">UC2</span>
+      <div class="uc-title">
+        <div class="uc-title-main">Segment Builder — Tạo nhóm khách hàng</div>
+        <div class="uc-subtitle">9 câu hỏi · Pain points · Use-cases · Flow chốt</div>
+      </div>
+      <div class="uc-toggle open" id="toggle-uc2">▾</div>
+    </div>
+    <div class="uc-purpose">🎯 Mục tiêu: Hiểu cách MKT đang phân khúc KH hiện tại — từ đó define các segment template cần build trước. <strong>Anh Bình (BI Team) sẽ dùng input này để thiết kế filter logic trong data mart.</strong></div>
+    <div class="uc-body open" id="body-uc2">
+      <div class="insight-callout">
+        <div class="insight-callout-icon">💡</div>
+        <div class="insight-callout-body"><strong>Giả thuyết cần confirm:</strong> Nhân khẩu học (tuổi, giới tính) có thể không phản ánh đúng ý định mua. <strong>Hành vi thực tế</strong> (RFM, sản phẩm đã mua, kênh ưa thích) có thể chính xác hơn. <strong>Anh Bình cần MKT confirm</strong> tiêu chí nào quan trọng nhất để ưu tiên index vào Elasticsearch.</div>
+      </div>
+      <div class="q-group">
+        <div class="q-group-title">🔍 Khai thác pain point — anh Bình cần để build filter schema</div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-yellow-dark);">1</div><div><div class="q-text">Hiện tại bạn đang chia KH thành những nhóm nào để chạy campaign?</div><div class="q-example">📌 List này sẽ trở thành "segment preset" trong CYO — anh Bình cần để chuẩn bị data trước</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-yellow-dark);">2</div><div><div class="q-text">Tiêu chí nào bạn dùng nhiều nhất khi tạo segment?</div><div class="q-example">VD: số lần mua, giá trị đơn hàng, khu vực, sản phẩm đã mua, ngày mua cuối... — anh Bình cần biết để đảm bảo field này có trong mart</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-yellow-dark);">3</div><div><div class="q-text">Có nhóm KH nào bạn muốn target nhưng chưa làm được vì không có data hoặc quá phức tạp?</div><div class="q-example">📌 Đây là gap quan trọng — anh Bình sẽ đánh giá xem data có thể bổ sung không</div></div></div>
+      </div>
+      <div class="q-group">
+        <div class="q-group-title">💡 Khai thác use-case</div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-yellow-dark);">4</div><div><div class="q-text">Mô tả 1 segment điển hình bạn muốn tạo bằng lời nói thông thường</div><div class="q-example">VD: "KH mua áo polo trong 3 tháng qua, từ Hà Nội, chưa mua lần nào trong tháng này" — anh Bình cần 3–5 ví dụ như thế này</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-yellow-dark);">5</div><div>
+          <div class="q-text">Hiện tại KH có AOV cao và AOV thấp có đang nhận campaign khác nhau không?</div>
+          <div class="q-insight">📌 Validate giả thuyết — nếu chưa có sự phân biệt, đây là cơ hội tối ưu lớn. CYO có thể giúp segment theo giá trị KH tự động.</div>
+        </div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-yellow-dark);">6</div><div><div class="q-text">Bạn muốn segment theo <strong>lý do mua</strong> không? YODY có data nào phản ánh động lực mua của KH không?</div><div class="q-example">VD: KH mua vì khuyến mãi vs KH mua vì thích thương hiệu — anh Bình cần biết để xem có signal nào trong transaction data không</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-yellow-dark);">7</div><div><div class="q-text">Với 1 segment, bạn cần tối thiểu bao nhiêu KH để campaign có ý nghĩa?</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-yellow-dark);">8</div><div><div class="q-text">Bạn cần lưu lại và tái sử dụng segment hay chỉ dùng một lần mỗi campaign?</div></div></div>
+      </div>
+      <div class="flow-box">
+        <div class="flow-box-icon">🔁</div>
+        <div class="flow-box-content">
+          <div class="flow-box-label">Câu hỏi chốt flow</div>
+          <p><strong>9.</strong> Sau khi tạo segment xong → bạn muốn export đi đâu? <em>(Zalo ZNS / SMS / Facebook Custom Audience / file Excel / trigger automation?)</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UC7 -->
+  <div class="uc-block">
+    <div class="uc-header" onclick="toggle('uc7')">
+      <div class="uc-accent-bar" style="background:var(--success);"></div>
+      <span class="uc-badge" style="background:var(--success);">UC7</span>
+      <div class="uc-title">
+        <div class="uc-title-main">Content Recommender — AI gợi ý nội dung</div>
+        <div class="uc-subtitle">10 câu hỏi · Pain points · Persona · Brand Voice · Flow chốt</div>
+      </div>
+      <div class="uc-toggle open" id="toggle-uc7">▾</div>
+    </div>
+    <div class="uc-purpose">🎯 Mục tiêu: Hiểu quy trình tạo nội dung hiện tại, brand voice của YODY, và mức độ cá nhân hóa mong muốn. <strong>Anh Bình cần Brand Voice document để enrich ContentGen Agent — đây là input trực tiếp.</strong></div>
+    <div class="uc-body open" id="body-uc7">
+      <div class="insight-callout">
+        <div class="insight-callout-icon">💡</div>
+        <div class="insight-callout-body"><strong>Giả thuyết cần confirm:</strong> Các nhóm KH khác nhau (theo độ tuổi / hành vi / kênh) có cần nội dung khác nhau không? Và hiện tại team MKT có đang tạo các biến thể này không?</div>
+      </div>
+      <div class="q-group">
+        <div class="q-group-title">🔍 Khai thác pain point</div>
+        <div class="q-item"><div class="q-num" style="background:var(--success);">1</div><div><div class="q-text">Hiện tại bạn tạo nội dung SMS / ZNS / Email như thế nào? Mất bao lâu cho 1 campaign hoàn chỉnh?</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--success);">2</div><div><div class="q-text">Khó khăn lớn nhất khi viết nội dung cho từng nhóm KH khác nhau là gì?</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--success);">3</div><div><div class="q-text">YODY có tài liệu Brand Voice / Tone of Voice chính thức không? Ai là người giữ và cập nhật?</div></div></div>
+      </div>
+      <div class="q-group">
+        <div class="q-group-title">💡 Khai thác use-case</div>
+        <div class="q-item"><div class="q-num" style="background:var(--success);">4</div><div><div class="q-text">Nếu AI gợi ý nội dung, bạn muốn AI biết những thông tin gì về KH để gợi ý đúng?</div><div class="q-example">VD: lịch sử mua hàng, sản phẩm yêu thích, khu vực, kênh ưa thích, tần suất mua...</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--success);">5</div><div>
+          <div class="q-text">Hiện tại nội dung gửi cho KH ở các kênh khác nhau (Zalo vs SMS vs Email) có khác nhau không?</div>
+          <div class="q-insight">📌 Validate giả thuyết — nếu đang gửi cùng 1 nội dung cho tất cả kênh, đây là cơ hội tối ưu lớn</div>
+        </div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--success);">6</div><div><div class="q-text">Yếu tố nào trong nội dung bạn thấy hiệu quả nhất với KH YODY hiện tại?</div><div class="q-example">VD: nhấn mạnh giảm giá / sản phẩm mới / câu chuyện thương hiệu / ưu đãi có thời hạn...</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--success);">7</div><div>
+          <div class="q-text">Với 1 campaign, bạn thường cần bao nhiêu biến thể nội dung? Quy trình A/B test hiện tại ra sao?</div>
+        </div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--success);">8</div><div><div class="q-text">Kênh nào có conversion rate thực tế cao nhất với YODY?</div><div class="q-example">Zalo ZNS / SMS / Email / Push Notification / TikTok / Facebook — theo cảm nhận hoặc data thực tế nếu có</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--success);">9</div><div><div class="q-text">Có giới hạn gì về nội dung AI không được tạo không? (luật, cam kết thương hiệu, chủ đề nhạy cảm...)</div></div></div>
+      </div>
+      <div class="flow-box">
+        <div class="flow-box-icon">🔁</div>
+        <div class="flow-box-content">
+          <div class="flow-box-label">Câu hỏi chốt flow</div>
+          <p><strong>10.</strong> Sau khi AI gợi ý content → ai review? Có checklist cố định không? Mất bao lâu từ lúc có draft đến lúc gửi đi?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UC8 -->
+  <div class="uc-block">
+    <div class="uc-header" onclick="toggle('uc8')">
+      <div class="uc-accent-bar" style="background:var(--info);"></div>
+      <span class="uc-badge" style="background:var(--info);">UC8</span>
+      <div class="uc-title">
+        <div class="uc-title-main">Approval Workflow — Luồng duyệt campaign</div>
+        <div class="uc-subtitle">8 câu hỏi · Pain points · Escalation · Flow chốt</div>
+      </div>
+      <div class="uc-toggle open" id="toggle-uc8">▾</div>
+    </div>
+    <div class="uc-purpose">🎯 Mục tiêu: Map đúng quy trình duyệt thực tế của MKT — để thiết kế workflow phù hợp, không tạo thêm bottleneck</div>
+    <div class="uc-body open" id="body-uc8">
+      <div class="insight-callout">
+        <div class="insight-callout-icon">💡</div>
+        <div class="insight-callout-body"><strong>Nguyên tắc thiết kế:</strong> CYO luôn có <strong>human-in-the-loop</strong> — AI không bao giờ tự gửi campaign. Câu hỏi ở đây là: quy trình duyệt hiện tại của YODY trông như thế nào để CYO fit vào đúng chỗ.</div>
+      </div>
+      <div class="q-group">
+        <div class="q-group-title">🔍 Khai thác pain point</div>
+        <div class="q-item"><div class="q-num" style="background:var(--info);">1</div><div><div class="q-text">Hiện tại 1 campaign đi qua bao nhiêu bước phê duyệt trước khi gửi đến KH?</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--info);">2</div><div><div class="q-text">Ai là người duyệt cuối cùng? Họ cần thấy thông tin gì để duyệt nhanh được?</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--info);">3</div><div><div class="q-text">Có trường hợp nào campaign bị delay vì quy trình duyệt không? Nguyên nhân thường là gì?</div></div></div>
+      </div>
+      <div class="q-group">
+        <div class="q-group-title">💡 Khai thác use-case</div>
+        <div class="q-item"><div class="q-num" style="background:var(--info);">4</div><div><div class="q-text">Bạn muốn nhận thông báo duyệt qua kênh nào?</div><div class="q-example">Email / Slack / Zalo / trực tiếp trên CYO interface</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--info);">5</div><div><div class="q-text">Có loại campaign nào có thể fast-track (duyệt nhanh hơn hoặc bỏ qua 1 vài bước)?</div><div class="q-example">VD: campaign nhỏ &lt;1.000 KH / retargeting đã có template approved / campaign lặp lại hàng tuần...</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--info);">6</div><div><div class="q-text">Nếu người duyệt vắng mặt, có người thay thế không? Quy trình escalation thực tế ra sao?</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--info);">7</div><div><div class="q-text">Khi từ chối, người duyệt cần ghi chú lý do không? Lý do phổ biến nhất là gì?</div></div></div>
+      </div>
+      <div class="flow-box">
+        <div class="flow-box-icon">🔁</div>
+        <div class="flow-box-content">
+          <div class="flow-box-label">Câu hỏi chốt flow</div>
+          <p><strong>8.</strong> Sau khi được duyệt → hệ thống tự gửi luôn hay MKT vẫn cần bấm xác nhận 1 lần nữa? <em>(CYO đề xuất: 1 final confirm để an toàn)</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION KPI: KPI ĐO HIỆU QUẢ
+  ══════════════════════════════════════ -->
+  <div class="section-label">📈 KPI đo hiệu quả CYO — Baseline cần MKT cung cấp hôm nay</div>
+
+  <div style="background:var(--white);border:1.5px solid var(--gray-200);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:16px;">
+    <div style="background:var(--yody-navy);padding:14px 22px;">
+      <div style="font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.7);">Các KPI đánh giá hiệu quả hệ thống — cần đo baseline TRƯỚC khi go-live để có số so sánh thực tế</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--gray-100);">
+      <div style="padding:6px 14px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gray-400);">KPI</div>
+      <div style="padding:6px 14px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--yody-yellow-dark);border-left:1px solid var(--gray-100);">Baseline (MKT cung cấp)</div>
+      <div style="padding:6px 14px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#166534;border-left:1px solid var(--gray-100);">Target sau 3 tháng dùng CYO</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--gray-100);">
+      <div style="padding:14px;"><div style="font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:3px;">⏱ Thời gian lấy 1 insight</div><div style="font-size:12px;color:var(--gray-500);">Từ lúc MKT cần → nhận được số liệu</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:var(--yody-yellow-dark);">? ngày (MKT điền)</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Trung bình hiện tại khi phải chờ BI</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:#059669;">&lt; 5 phút</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Chat AI → kết quả ngay</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--gray-100);">
+      <div style="padding:14px;"><div style="font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:3px;">🎯 Thời gian tạo 1 segment</div><div style="font-size:12px;color:var(--gray-500);">Từ ý tưởng đến danh sách KH hoàn chỉnh</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:var(--yody-yellow-dark);">? ngày (MKT điền)</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Bao gồm thời gian nhờ BI/IT</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:#059669;">&lt; 15 phút</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Chat tiếng Việt → filter tự động</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--gray-100);">
+      <div style="padding:14px;"><div style="font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:3px;">✍️ Thời gian tạo 1 bộ content</div><div style="font-size:12px;color:var(--gray-500);">Draft ZNS/SMS/Email cho 1 campaign</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:var(--yody-yellow-dark);">? giờ (MKT điền)</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Thực tế hiện tại từ brief → draft xong</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:#059669;">Giảm ≥ 50%</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">AI draft → MKT chỉnh sửa</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--gray-100);">
+      <div style="padding:14px;"><div style="font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:3px;">📊 Số campaign chạy / tháng</div><div style="font-size:12px;color:var(--gray-500);">Tổng số campaign MKT triển khai</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:var(--yody-yellow-dark);">? campaign (MKT điền)</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Trung bình mỗi tháng hiện tại</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:#059669;">Tăng ≥ 2× với cùng nhân sự</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Nhờ giảm thời gian chuẩn bị</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--gray-100);">
+      <div style="padding:14px;"><div style="font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:3px;">🔁 Campaign win-back conversion rate</div><div style="font-size:12px;color:var(--gray-500);">KH rời đi → mua lại sau campaign</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:var(--yody-yellow-dark);">? % (MKT điền nếu có)</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Baseline hiện tại nếu đã track</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:#059669;">Tăng ≥ 15–20%</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Nhờ đúng segment + đúng timing</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);">
+      <div style="padding:14px;"><div style="font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:3px;">⭐ Mức độ hài lòng với insight</div><div style="font-size:12px;color:var(--gray-500);">MKT tự đánh giá chất lượng data nhận được</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:var(--yody-yellow-dark);">? / 10 (MKT tự rate)</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Điểm hài lòng với quy trình lấy insight hiện tại</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:#059669;">≥ 8 / 10</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Sau 3 tháng dùng CYO</div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION 6: VOTE
+  ══════════════════════════════════════ -->
+  <div class="section-label">🗳 Prioritization — MKT vote trong buổi họp</div>
+  <div class="vote-section">
+    <div class="vote-header">
+      <div class="vote-header-icon">🗳</div>
+      <div>
+        <div class="vote-title">Top use-case cần làm trước — chọn tối đa 5</div>
+        <div class="vote-sub">Kết quả vote quyết định thứ tự build trong sprint. Click để chọn — hệ thống tự đếm.</div>
+      </div>
+    </div>
+    <div class="vote-body">
+      <div class="vote-grid" id="voteGrid">
+        <div class="vote-item" onclick="voteToggle(this)"><div class="vote-dot" style="background:var(--yody-navy);"></div>Insight: Hỏi theo ngày / tháng<span class="vote-check">✓</span></div>
+        <div class="vote-item" onclick="voteToggle(this)"><div class="vote-dot" style="background:var(--yody-navy);"></div>Insight: KH sắp rời đi (churn)<span class="vote-check">✓</span></div>
+        <div class="vote-item" onclick="voteToggle(this)"><div class="vote-dot" style="background:var(--yody-navy);"></div>Insight: Hiệu quả campaign gần nhất<span class="vote-check">✓</span></div>
+        <div class="vote-item" onclick="voteToggle(this)"><div class="vote-dot" style="background:var(--yody-navy);"></div>Insight: KH theo kênh / nguồn<span class="vote-check">✓</span></div>
+        <div class="vote-item" onclick="voteToggle(this)"><div class="vote-dot" style="background:var(--yody-yellow-dark);"></div>Segment: Theo hành vi mua<span class="vote-check">✓</span></div>
+        <div class="vote-item" onclick="voteToggle(this)"><div class="vote-dot" style="background:var(--yody-yellow-dark);"></div>Segment: Theo giá trị KH (AOV)<span class="vote-check">✓</span></div>
+        <div class="vote-item" onclick="voteToggle(this)"><div class="vote-dot" style="background:var(--yody-yellow-dark);"></div>Segment: KH VIP / Loyal<span class="vote-check">✓</span></div>
+        <div class="vote-item" onclick="voteToggle(this)"><div class="vote-dot" style="background:var(--success);"></div>Content: ZNS cá nhân hóa<span class="vote-check">✓</span></div>
+        <div class="vote-item" onclick="voteToggle(this)"><div class="vote-dot" style="background:var(--success);"></div>Content: Theo mùa / sự kiện<span class="vote-check">✓</span></div>
+        <div class="vote-item" onclick="voteToggle(this)"><div class="vote-dot" style="background:var(--success);"></div>Content: A/B variants<span class="vote-check">✓</span></div>
+        <div class="vote-item" onclick="voteToggle(this)"><div class="vote-dot" style="background:var(--info);"></div>Approval: Duyệt 1-click<span class="vote-check">✓</span></div>
+        <div class="vote-item" onclick="voteToggle(this)"><div class="vote-dot" style="background:var(--info);"></div>Approval: Thông báo Zalo / Slack<span class="vote-check">✓</span></div>
+      </div>
+      <div class="vote-counter">Đã chọn: <span id="voteCount">0</span> / 5</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION 7: OUTPUT
+  ══════════════════════════════════════ -->
+  <div class="section-label">📦 Output mong đợi sau buổi họp</div>
+  <div class="table-wrap">
+    <table class="output-table">
+      <thead><tr><th>Deliverable</th><th style="width:156px;">Deadline</th><th style="width:200px;">Owner / Giao cho ai</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Use-case list v0.1</strong> — ≥ 10 UC có mức độ ưu tiên từ MKT (format: "Tôi muốn biết X để làm Y")</td><td><span class="deadline-badge">⏰ 25/04/2026</span></td><td><span class="owner-badge">⭐ Lãm tổng hợp → gửi anh Bình</span></td></tr>
+        <tr><td><strong>Validation log</strong> — Danh sách giả thuyết đã confirm / bác bỏ từ MKT</td><td><span class="deadline-badge">⏰ 25/04/2026</span></td><td><span class="owner-badge">⭐ Lãm ghi chép</span></td></tr>
+        <tr><td><strong>3–5 segment mô tả bằng lời</strong> — câu mô tả segment thực tế MKT hay dùng (input cho anh Bình build filter)</td><td><span class="deadline-badge">⏰ 25/04/2026</span></td><td><span class="owner-badge">MKT → anh Bình (BI)</span></td></tr>
+        <tr><td><strong>Brand Voice doc</strong> — tài liệu hoặc ví dụ nội dung YODY đã dùng (anh Bình cần để enrich ContentGen)</td><td><span class="deadline-badge">⏰ 30/04/2026</span></td><td><span class="owner-badge">MKT Lead → anh Bình</span></td></tr>
+        <tr><td><strong>MKT sign-off</strong> trên 4 UC flows (UC5 · UC2 · UC7 · UC8) + confirm lịch interview 07–09/05</td><td><span class="deadline-badge">⏰ 25/04/2026</span></td><td><span class="owner-badge">🗳 MKT Lead → Lãm</span></td></tr>
+        <tr style="background:rgba(52,211,153,.06)"><td><strong>🚀 MVP Demo</strong> — PO Lãm trình bày cho toàn team MKT, MKT tham gia UAT</td><td><span style="display:inline-flex;align-items:center;gap:4px;background:#dcfce7;color:#166534;border-radius:var(--r-sm);font-size:11px;font-weight:800;padding:3px 10px;border:1px solid #86efac;">🎯 Tháng 6/2026</span></td><td><span style="display:inline-flex;align-items:center;gap:4px;background:#f0fdf4;color:#166534;border-radius:var(--r-sm);font-size:12px;font-weight:700;padding:3px 10px;border:1px solid #86efac;">⭐ PO Lãm demo · MKT UAT</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-logo"><span class="yo">yo</span><span class="dy">dy</span></div>
+  <div class="footer-text">CYO CRM · Prepared by <strong>Lãm (Water Four)</strong> · 21/04/2026</div>
+  <div class="footer-text">Use-case deadline: <strong>25/04/2026</strong> · MVP Go-Live: <strong>30/06/2026</strong> · Demo by PO Lãm</div>
+</div>
+
+<script>
+function toggle(id) {
+  const body = document.getElementById('body-' + id);
+  const icon = document.getElementById('toggle-' + id);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  icon.classList.toggle('open', !isOpen);
+}
+const MAX_VOTES = 5;
+function voteToggle(el) {
+  const selected = document.querySelectorAll('.vote-item.selected').length;
+  if (!el.classList.contains('selected') && selected >= MAX_VOTES) return;
+  el.classList.toggle('selected');
+  document.getElementById('voteCount').textContent = document.querySelectorAll('.vote-item.selected').length;
+}
+</script>
+</body>
+</html>
