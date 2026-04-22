@@ -275,7 +275,7 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
   <div class="hero-meta">
     <div class="meta-pill"><span>📅</span><span>Prepared: <strong>21/04/2026</strong></span></div>
     <div class="meta-pill"><span>⏰</span><span>Deadline output: <strong>24/04/2026</strong></span></div>
-    <div class="meta-pill"><span>👤</span><span>PO: <strong>Lãm (Water Four)</strong></span></div>
+    <div class="meta-pill"><span>👤</span><span>PO: <strong>Lãm</strong></span></div>
     <div class="meta-pill"><span>🎯</span><span>UC: <strong>5 · 2 · 7 · 8</strong></span></div>
     <div class="meta-pill"><span>⏱</span><span><strong>90 phút</strong></span></div>
     <div class="meta-pill" style="background:rgba(52,211,153,.18);border-color:rgba(52,211,153,.4);"><span>🚀</span><span>MVP Demo: <strong style="color:#34D399;">Tháng 6 · PO Lãm trình bày</strong></span></div>
@@ -285,9 +285,58 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
 <div class="container">
 
   <!-- ══════════════════════════════════════
+       SECTION AGENDA: AGENDA BUỔI LÀM VIỆC
+  ══════════════════════════════════════ -->
+  <div class="section-label">🗓 Agenda buổi làm việc — 90 phút</div>
+  <div style="background:var(--white);border:1.5px solid var(--gray-200);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:8px;">
+    <div style="display:grid;grid-template-columns:140px 1fr 140px;">
+      <div style="padding:8px 14px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gray-400);background:var(--gray-50);border-bottom:1px solid var(--gray-100);">Thời gian</div>
+      <div style="padding:8px 14px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gray-400);background:var(--gray-50);border-bottom:1px solid var(--gray-100);border-left:1px solid var(--gray-100);">Nội dung</div>
+      <div style="padding:8px 14px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gray-400);background:var(--gray-50);border-bottom:1px solid var(--gray-100);border-left:1px solid var(--gray-100);">Owner</div>
+    </div>
+    <div style="display:grid;grid-template-columns:140px 1fr 140px;border-bottom:1px solid var(--gray-100);">
+      <div style="padding:12px 14px;"><span style="background:var(--yody-navy-pale);color:var(--yody-navy);font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--r-full);">00 – 10'</span></div>
+      <div style="padding:12px 14px;border-left:1px solid var(--gray-100);font-size:13px;color:var(--gray-700);">Bối cảnh & mục tiêu dự án CYO — <span style="color:var(--gray-500);">CYO làm được gì, phạm vi Phase 1</span></div>
+      <div style="padding:12px 14px;border-left:1px solid var(--gray-100);font-size:12px;font-weight:600;color:var(--yody-navy);">Lãm</div>
+    </div>
+    <div style="display:grid;grid-template-columns:140px 1fr 140px;border-bottom:1px solid var(--gray-100);">
+      <div style="padding:12px 14px;"><span style="background:var(--yody-navy-pale);color:var(--yody-navy);font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--r-full);">10 – 35'</span></div>
+      <div style="padding:12px 14px;border-left:1px solid var(--gray-100);font-size:13px;color:var(--gray-700);">Deep-dive UC5 + UC2 — <span style="color:var(--gray-500);">Insight query & Segment builder: khai thác nhu cầu thực tế</span></div>
+      <div style="padding:12px 14px;border-left:1px solid var(--gray-100);font-size:12px;font-weight:600;color:var(--yody-navy);">MKT + Lãm</div>
+    </div>
+    <div style="display:grid;grid-template-columns:140px 1fr 140px;border-bottom:1px solid var(--gray-100);">
+      <div style="padding:12px 14px;"><span style="background:var(--yody-navy-pale);color:var(--yody-navy);font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--r-full);">35 – 60'</span></div>
+      <div style="padding:12px 14px;border-left:1px solid var(--gray-100);font-size:13px;color:var(--gray-700);">Deep-dive UC7 + UC8 — <span style="color:var(--gray-500);">Content gợi ý & luồng duyệt campaign thực tế của team</span></div>
+      <div style="padding:12px 14px;border-left:1px solid var(--gray-100);font-size:12px;font-weight:600;color:var(--yody-navy);">MKT + Lãm</div>
+    </div>
+    <div style="display:grid;grid-template-columns:140px 1fr 140px;border-bottom:1px solid var(--gray-100);">
+      <div style="padding:12px 14px;"><span style="background:var(--yody-navy-pale);color:var(--yody-navy);font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--r-full);">60 – 75'</span></div>
+      <div style="padding:12px 14px;border-left:1px solid var(--gray-100);font-size:13px;color:var(--gray-700);">Prioritization — <span style="color:var(--gray-500);">MKT vote top use-case cần build trước</span></div>
+      <div style="padding:12px 14px;border-left:1px solid var(--gray-100);font-size:12px;font-weight:600;color:var(--yody-navy);">MKT</div>
+    </div>
+    <div style="display:grid;grid-template-columns:140px 1fr 140px;">
+      <div style="padding:12px 14px;"><span style="background:var(--yody-navy-pale);color:var(--yody-navy);font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--r-full);">75 – 90'</span></div>
+      <div style="padding:12px 14px;border-left:1px solid var(--gray-100);font-size:13px;color:var(--gray-700);">Align & Next steps — <span style="color:var(--gray-500);">Chốt output, assign owner + deadline</span></div>
+      <div style="padding:12px 14px;border-left:1px solid var(--gray-100);font-size:12px;font-weight:600;color:var(--yody-navy);">Lãm</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION: MỤC TIÊU BUỔI LÀM VIỆC
+  ══════════════════════════════════════ -->
+  <div class="section-label">🎯 Mục tiêu buổi làm việc</div>
+  <div class="objectives-grid">
+    <div class="obj-card"><div class="obj-icon" style="background:var(--yody-navy-pale);">🧭</div><p>MKT hiểu <strong>CYO MCP làm được gì</strong> bằng ngôn ngữ business — không kỹ thuật</p></div>
+    <div class="obj-card"><div class="obj-icon" style="background:var(--yody-yellow-pale);">📋</div><p>Thu thập <strong>≥ 10 use-case</strong> có độ ưu tiên từ MKT làm đầu vào phát triển</p></div>
+    <div class="obj-card"><div class="obj-icon" style="background:#f0fdf4;">🔁</div><p>Validate các <strong>giả thuyết</strong> về KH YODY — đúng hay sai sẽ ảnh hưởng thiết kế hệ thống</p></div>
+    <div class="obj-card"><div class="obj-icon" style="background:#eff6ff;">💬</div><p>Xác định <strong>3–5 câu hỏi MKT hỏi thực tế hằng ngày</strong> làm test case cho AI</p></div>
+  </div>
+
+  <!-- ══════════════════════════════════════
        SECTION 0: BỐI CẢNH & MỤC TIÊU DỰ ÁN
   ══════════════════════════════════════ -->
   <div class="section-label">🏢 Bối cảnh & Mục tiêu dự án CYO</div>
+  <div style="font-size:13px;color:var(--gray-600);margin-bottom:16px;margin-top:-8px;line-height:1.6;">Mục tiêu section: Giúp MKT hiểu tại sao CYO ra đời, phạm vi Phase 1, và vai trò của team trong dự án.</div>
 
   <!-- Context banner -->
   <div style="background:linear-gradient(135deg,var(--yody-navy-dark),var(--yody-navy));border-radius:var(--r-xl);padding:28px 32px;color:white;margin-bottom:24px;position:relative;overflow:hidden;">
@@ -297,11 +346,11 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;">
       <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-lg);padding:14px 16px;">
         <div style="font-size:11px;font-weight:700;color:rgba(245,166,35,.9);margin-bottom:6px;letter-spacing:.8px;">❌ THỰC TRẠNG</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;">Chưa có CRM thực thụ. Dữ liệu phân tán, không có Single Source of Truth. MKT phải chờ BI để lấy insight — mất vài ngày cho một câu hỏi đơn giản.</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;">Chưa có CRM thực thụ. Dữ liệu phân tán, thiếu một nguồn dữ liệu tập trung đáng tin cậy. Khi cần lên ý tưởng nhanh cho campaign, MKT chưa có công cụ để tự khám phá dữ liệu trước — mọi nhu cầu đều phải đi qua quy trình phân tích chính thức.</div>
       </div>
       <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-lg);padding:14px 16px;">
         <div style="font-size:11px;font-weight:700;color:rgba(245,166,35,.9);margin-bottom:6px;letter-spacing:.8px;">🎯 MỤC TIÊU CYO</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;">Tập trung hóa dữ liệu 6M+ KH thành Golden Dataset. Cho phép MKT hỏi AI trực tiếp bằng tiếng Việt, nhận insight ngay — không cần SQL, không cần chờ BI.</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;">Tập trung hóa dữ liệu 6M+ KH thành Golden Dataset. Cho phép MKT tự brainstorm & nháp ý tưởng nhanh bằng tiếng Việt — sau đó phối hợp BI review để đảm bảo tính chính xác trước khi ra quyết định.</div>
       </div>
       <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-lg);padding:14px 16px;">
         <div style="font-size:11px;font-weight:700;color:rgba(245,166,35,.9);margin-bottom:6px;letter-spacing:.8px;">⚖️ NGUYÊN TẮC CỐT LÕI</div>
@@ -318,11 +367,12 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
        SECTION 1: CYO VALUE PROP
   ══════════════════════════════════════ -->
   <div class="section-label">🚀 CYO MCP đề xuất giải quyết gì cho Team MKT</div>
+  <div style="font-size:13px;color:var(--gray-600);margin-bottom:16px;margin-top:-8px;line-height:1.6;">Mục tiêu section: Trình bày 6 giá trị cốt lõi mà CYO mang lại cho MKT — MKT đánh giá mức độ phù hợp với nhu cầu thực tế.</div>
   <div class="prop-grid">
     <div class="prop-card">
       <div class="prop-icon-wrap" style="background:var(--yody-navy-pale);">🧠</div>
       <div class="prop-title">Giảm thời gian chờ insight</div>
-      <div class="prop-desc">Thay vì chờ BI vài ngày, MKT chat tự nhiên với AI bằng tiếng Việt và nhận kết quả ngay — không cần SQL.</div>
+      <div class="prop-desc">MKT có thể tự khám phá dữ liệu và lên ý tưởng nhanh bằng AI trước khi đưa vào phân tích chuyên sâu cùng BI. Quy trình: AI hỗ trợ nháp → BI review & xác nhận → triển khai.</div>
       <span class="q-tag channel">UC5</span>
     </div>
     <div class="prop-card">
@@ -361,6 +411,7 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
        SECTION: CURRENT VS CYO WORKFLOW
   ══════════════════════════════════════ -->
   <div class="section-label">🔄 So sánh: Quy trình lấy insight & tạo campaign hiện tại vs với CYO</div>
+  <div style="font-size:13px;color:var(--gray-600);margin-bottom:16px;margin-top:-8px;line-height:1.6;">Mục tiêu section: Minh họa cụ thể CYO thay đổi quy trình làm việc của MKT như thế nào — MKT xác nhận quy trình hiện tại có đúng không.</div>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px;">
 
@@ -368,7 +419,7 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
     <div style="background:var(--white);border:2px solid #e5e7eb;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-sm);">
       <div style="background:#f3f4f6;padding:14px 18px;border-bottom:2px solid #d1d5db;">
         <div style="font-size:13px;font-weight:800;color:#374151;">📊 Quy trình HIỆN TẠI</div>
-        <div style="font-size:11px;color:#6b7280;margin-top:3px;">Lâu, thủ công, phụ thuộc BI</div>
+        <div style="font-size:11px;color:#6b7280;margin-top:3px;">Chưa có kênh để MKT tự khám phá dữ liệu trước khi vào phân tích chính thức</div>
       </div>
       <div style="padding:16px;">
         <!-- Step 1 -->
@@ -421,7 +472,7 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
         </div>
       </div>
       <div style="background:#fef2f2;padding:12px 16px;border-top:1px solid #e5e7eb;font-size:11px;color:#7f1d1d;">
-        ⚠️ <strong>Vấn đề:</strong> Chậm, phụ thuộc BI, khó thay đổi nhanh, khó test nhiều ideas song song
+        ⚠️ <strong>Khoảng trống:</strong> Chưa có kênh tự phục vụ để MKT khám phá dữ liệu nhanh — mọi nhu cầu đều đi qua quy trình phân tích chính thức, khó thử nghiệm nhiều ý tưởng song song
       </div>
     </div>
 
@@ -492,6 +543,7 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
        SECTION TL: TIMELINE & MKT TOUCHPOINTS
   ══════════════════════════════════════ -->
   <div class="section-label">📅 Timeline dự án — Vai trò & Mốc quan trọng của Team MKT</div>
+  <div style="font-size:13px;color:var(--gray-600);margin-bottom:16px;margin-top:-8px;line-height:1.6;">Mục tiêu section: MKT nắm rõ các mốc thời gian cần tham gia, và biết liên hệ ai cho từng loại vấn đề.</div>
 
   <!-- MVP clarification banner -->
   <div class="disclaimer-banner" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-color:#34D399;">
@@ -522,7 +574,7 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
       </div>
       <div style="font-size:14px;font-weight:800;color:var(--gray-900);margin-bottom:6px;">🎙 Interview Session</div>
       <div style="font-size:12px;color:var(--gray-600);line-height:1.6;margin-bottom:10px;">1–2h/người. MKT Executor mô tả workflow thực tế. <strong>Làm việc với: anh Bình (BI Team) + PO Lãm</strong> dẫn dắt session.</div>
-      <div style="font-size:11px;font-weight:700;color:var(--yody-navy);padding:5px 10px;background:var(--yody-navy-pale);border-radius:var(--r-sm);">⏰ Book lịch cứng — không hoãn</div>
+      <div style="font-size:11px;font-weight:700;color:var(--yody-navy);padding:5px 10px;background:var(--yody-navy-pale);border-radius:var(--r-sm);">⏰ Cần book lịch sớm để đảm bảo tiến độ</div>
     </div>
 
     <!-- Phase 2: Review AI output -->
@@ -1249,46 +1301,10 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
   </div>
 
   <!-- ══════════════════════════════════════
-       SECTION 3: OBJECTIVES
-  ══════════════════════════════════════ -->
-  <div class="section-label">🎯 Mục tiêu buổi làm việc</div>
-  <div class="objectives-grid">
-    <div class="obj-card"><div class="obj-icon" style="background:var(--yody-navy-pale);">🧭</div><p>MKT hiểu <strong>CYO MCP làm được gì</strong> bằng ngôn ngữ business — không kỹ thuật</p></div>
-    <div class="obj-card"><div class="obj-icon" style="background:var(--yody-yellow-pale);">📋</div><p>Thu thập <strong>≥ 10 use-case</strong> có độ ưu tiên từ MKT làm đầu vào phát triển</p></div>
-    <div class="obj-card"><div class="obj-icon" style="background:#f0fdf4;">🔁</div><p>Validate các <strong>giả thuyết</strong> về KH YODY — đúng hay sai sẽ ảnh hưởng thiết kế hệ thống</p></div>
-    <div class="obj-card"><div class="obj-icon" style="background:#eff6ff;">💬</div><p>Xác định <strong>3–5 câu hỏi MKT hỏi thực tế hằng ngày</strong> làm test case cho AI</p></div>
-  </div>
-
-  <!-- ══════════════════════════════════════
-       SECTION 4: AGENDA
-  ══════════════════════════════════════ -->
-  <div class="section-label">🗓 Agenda chi tiết — 90 phút</div>
-  <div class="agenda-progress">
-    <div class="agenda-progress-seg" style="width:11%;background:var(--yody-navy);"></div>
-    <div class="agenda-progress-seg" style="width:11%;background:var(--yody-navy-light);"></div>
-    <div class="agenda-progress-seg" style="width:28%;background:var(--yody-navy);"></div>
-    <div class="agenda-progress-seg" style="width:17%;background:var(--success);"></div>
-    <div class="agenda-progress-seg" style="width:17%;background:var(--yody-yellow);"></div>
-    <div class="agenda-progress-seg" style="width:16%;background:var(--info);"></div>
-  </div>
-  <div class="table-wrap">
-    <table class="agenda-table">
-      <thead><tr><th style="width:148px;">Thời gian</th><th>Nội dung</th><th style="width:148px;">Owner</th></tr></thead>
-      <tbody>
-        <tr><td><span class="time-badge">00 – 10 phút</span></td><td><strong>Set the scene</strong> — CYO MCP là gì, giải quyết vấn đề gì cho MKT? Trình bày 4 luồng chính bằng flow diagram</td><td><span class="owner-badge">⭐ Lãm</span></td></tr>
-        <tr><td><span class="time-badge">10 – 20 phút</span></td><td><strong>Validate giả thuyết</strong> — Cùng MKT xác nhận các giả thuyết về hành vi KH YODY có đúng không</td><td><span class="owner-badge">MKT + Lãm</span></td></tr>
-        <tr><td><span class="time-badge">20 – 45 phút</span></td><td><strong>Deep-dive UC5 + UC2</strong> — Insight query & Segment builder: khai thác nhu cầu thực tế</td><td><span class="owner-badge">MKT + Lãm</span></td></tr>
-        <tr><td><span class="time-badge">45 – 60 phút</span></td><td><strong>Deep-dive UC7 + UC8</strong> — Content gợi ý & luồng duyệt campaign thực tế của team</td><td><span class="owner-badge">MKT + Lãm</span></td></tr>
-        <tr><td><span class="time-badge">60 – 75 phút</span></td><td><strong>Prioritization</strong> — MKT vote top use-case quan trọng nhất cần build trước</td><td><span class="owner-badge">🗳 MKT</span></td></tr>
-        <tr><td><span class="time-badge">75 – 90 phút</span></td><td><strong>Align & Next steps</strong> — Chốt output list, assign owner + deadline cụ thể</td><td><span class="owner-badge">⭐ Lãm</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- ══════════════════════════════════════
        SECTION 5: REQUIREMENTS QUESTIONS
   ══════════════════════════════════════ -->
   <div class="section-label">💬 Bộ câu hỏi requirements — theo từng UC</div>
+  <div style="font-size:13px;color:var(--gray-600);margin-bottom:16px;margin-top:-8px;line-height:1.6;">Mục tiêu: Thu thập nhu cầu thực tế từ MKT cho từng use-case — câu trả lời sẽ là đầu vào trực tiếp cho đội phát triển.</div>
 
   <!-- UC5 -->
   <div class="uc-block">
@@ -1305,13 +1321,13 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
     <div class="uc-body open" id="body-uc5">
       <div class="insight-callout">
         <div class="insight-callout-icon">💡</div>
-        <div class="insight-callout-body"><strong>Giả thuyết cần confirm:</strong> MKT đang mất nhiều thời gian để lấy insight vì phải chờ BI/IT. Nếu đúng → đây là pain point lớn nhất mà UC5 giải quyết. <strong>Giai đoạn đầu MKT sẽ làm việc trực tiếp với anh Bình</strong> để align về metric definition trước khi AI trả lời.</div>
+        <div class="insight-callout-body"><strong>Góc nhìn cần khai thác:</strong> Trong nhiều tình huống, MKT cần lên ý tưởng nhanh trước khi đưa vào phân tích chuyên sâu. Hiện tại chưa có công cụ nào phục vụ nhu cầu này. CYO giúp MKT tự khám phá dữ liệu ở bước đầu — sau đó <strong>BI vẫn là bước review không thể thiếu</strong>, đảm bảo độ chính xác và chiều sâu của insights trước khi triển khai.</div>
       </div>
       <div class="q-group">
         <div class="q-group-title">🔍 Khai thác pain point — chia sẻ với anh Bình & PO Lãm</div>
         <div class="q-item"><div class="q-num" style="background:var(--yody-navy);">1</div><div><div class="q-text">Trong 1 tuần làm việc, bạn thường cần biết thông tin gì về khách hàng nhiều nhất?</div><div class="q-example">📌 Anh Bình sẽ kiểm tra xem data mart đã có đủ những metric này chưa</div></div></div>
         <div class="q-item"><div class="q-num" style="background:var(--yody-navy);">2</div><div><div class="q-text">Hiện tại bạn đang lấy thông tin đó từ đâu? Quy trình cụ thể là gì? Mất bao lâu?</div><div class="q-example">VD: chờ anh Bình / tự kéo Excel / nhờ IT xuất báo cáo — thời gian thực tế từ lúc cần → nhận được</div></div></div>
-        <div class="q-item"><div class="q-num" style="background:var(--yody-navy);">3</div><div><div class="q-text">Có trường hợp nào bạn cần số liệu gấp nhưng phải chờ BI / IT không? Chờ bao lâu?</div><div class="q-example">📌 Con số này là KPI baseline để đo ROI của CYO — anh Bình cần biết để set benchmark</div></div></div>
+        <div class="q-item"><div class="q-num" style="background:var(--yody-navy);">3</div><div><div class="q-text">Có tình huống nào bạn cần khám phá dữ liệu nhanh để lên ý tưởng, nhưng chưa đến mức cần phân tích chuyên sâu không?</div><div class="q-example">VD: muốn xem sơ bộ segment nào tiềm năng cho campaign tuần tới, trước khi đưa vào brief chính thức</div></div></div>
       </div>
       <div class="q-group">
         <div class="q-group-title">💡 Khai thác use-case — input trực tiếp cho anh Bình build data model</div>
@@ -1466,9 +1482,11 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
   </div>
 
   <!-- ══════════════════════════════════════
+  <!-- ══════════════════════════════════════
        SECTION KPI: KPI ĐO HIỆU QUẢ
   ══════════════════════════════════════ -->
   <div class="section-label">📈 KPI đo hiệu quả CYO — Baseline cần MKT cung cấp hôm nay</div>
+  <div style="font-size:13px;color:var(--gray-600);margin-bottom:16px;margin-top:-8px;line-height:1.6;">Mục tiêu section: MKT cung cấp số liệu baseline hiện tại để có cơ sở so sánh sau khi CYO go-live.</div>
 
   <div style="background:var(--white);border:1.5px solid var(--gray-200);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:16px;">
     <div style="background:var(--yody-navy);padding:14px 22px;">
@@ -1480,18 +1498,18 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
       <div style="padding:6px 14px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#166534;border-left:1px solid var(--gray-100);">Target sau 3 tháng dùng CYO</div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--gray-100);">
-      <div style="padding:14px;"><div style="font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:3px;">⏱ Thời gian lấy 1 insight</div><div style="font-size:12px;color:var(--gray-500);">Từ lúc MKT cần → nhận được số liệu</div></div>
-      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:var(--yody-yellow-dark);">? ngày (MKT điền)</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Trung bình hiện tại khi phải chờ BI</div></div>
-      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:#059669;">&lt; 5 phút</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Chat AI → kết quả ngay</div></div>
+      <div style="padding:14px;"><div style="font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:3px;">⏱ Thời gian chuẩn bị 1 campaign</div><div style="font-size:12px;color:var(--gray-500);">Từ ý tưởng → campaign sẵn sàng gửi</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:var(--yody-yellow-dark);">? ngày (MKT điền)</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Trung bình hiện tại</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:#059669;">Giảm ≥ 50%</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Nhờ AI hỗ trợ insight + content</div></div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--gray-100);">
       <div style="padding:14px;"><div style="font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:3px;">🎯 Thời gian tạo 1 segment</div><div style="font-size:12px;color:var(--gray-500);">Từ ý tưởng đến danh sách KH hoàn chỉnh</div></div>
-      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:var(--yody-yellow-dark);">? ngày (MKT điền)</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Bao gồm thời gian nhờ BI/IT</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:var(--yody-yellow-dark);">? ngày (MKT điền)</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Trung bình hiện tại</div></div>
       <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:#059669;">&lt; 15 phút</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Chat tiếng Việt → filter tự động</div></div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--gray-100);">
       <div style="padding:14px;"><div style="font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:3px;">✍️ Thời gian tạo 1 bộ content</div><div style="font-size:12px;color:var(--gray-500);">Draft ZNS/SMS/Email cho 1 campaign</div></div>
-      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:var(--yody-yellow-dark);">? giờ (MKT điền)</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Thực tế hiện tại từ brief → draft xong</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:var(--yody-yellow-dark);">? giờ (MKT điền)</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Từ brief → draft xong hiện tại</div></div>
       <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:#059669;">Giảm ≥ 50%</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">AI draft → MKT chỉnh sửa</div></div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--gray-100);">
@@ -1500,14 +1518,14 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
       <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:#059669;">Tăng ≥ 2× với cùng nhân sự</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Nhờ giảm thời gian chuẩn bị</div></div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--gray-100);">
-      <div style="padding:14px;"><div style="font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:3px;">🔁 Campaign win-back conversion rate</div><div style="font-size:12px;color:var(--gray-500);">KH rời đi → mua lại sau campaign</div></div>
+      <div style="padding:14px;"><div style="font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:3px;">🔁 Win-back conversion rate</div><div style="font-size:12px;color:var(--gray-500);">KH rời đi → mua lại sau campaign</div></div>
       <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:var(--yody-yellow-dark);">? % (MKT điền nếu có)</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Baseline hiện tại nếu đã track</div></div>
       <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:#059669;">Tăng ≥ 15–20%</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Nhờ đúng segment + đúng timing</div></div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);">
-      <div style="padding:14px;"><div style="font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:3px;">⭐ Mức độ hài lòng với insight</div><div style="font-size:12px;color:var(--gray-500);">MKT tự đánh giá chất lượng data nhận được</div></div>
-      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:var(--yody-yellow-dark);">? / 10 (MKT tự rate)</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Điểm hài lòng với quy trình lấy insight hiện tại</div></div>
-      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:#059669;">≥ 8 / 10</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Sau 3 tháng dùng CYO</div></div>
+      <div style="padding:14px;"><div style="font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:3px;">📬 Tỷ lệ mở / click campaign</div><div style="font-size:12px;color:var(--gray-500);">Open rate / CTR trung bình ZNS/Email</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:var(--yody-yellow-dark);">? % (MKT điền)</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Baseline hiện tại nếu đã track</div></div>
+      <div style="padding:14px;border-left:1px solid var(--gray-100);"><div style="font-size:13px;font-weight:800;color:#059669;">Tăng ≥ 20%</div><div style="font-size:11px;color:var(--gray-400);margin-top:2px;">Nhờ segment chính xác + content cá nhân hóa</div></div>
     </div>
   </div>
 
@@ -1515,6 +1533,7 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
        SECTION 6: VOTE
   ══════════════════════════════════════ -->
   <div class="section-label">🗳 Prioritization — MKT vote trong buổi họp</div>
+  <div style="font-size:13px;color:var(--gray-600);margin-bottom:16px;margin-top:-8px;line-height:1.6;">Mục tiêu section: MKT chọn tối đa 5 use-case quan trọng nhất — kết quả sẽ quyết định thứ tự phát triển trong sprint.</div>
   <div class="vote-section">
     <div class="vote-header">
       <div class="vote-header-icon">🗳</div>
@@ -1546,6 +1565,7 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
        SECTION 7: OUTPUT
   ══════════════════════════════════════ -->
   <div class="section-label">📦 Output mong đợi sau buổi họp</div>
+  <div style="font-size:13px;color:var(--gray-600);margin-bottom:16px;margin-top:-8px;line-height:1.6;">Mục tiêu section: Chốt rõ deliverable, deadline, và người chịu trách nhiệm cho từng đầu việc.</div>
   <div class="table-wrap">
     <table class="output-table">
       <thead><tr><th>Deliverable</th><th style="width:156px;">Deadline</th><th style="width:200px;">Owner / Giao cho ai</th></tr></thead>
@@ -1564,7 +1584,7 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
 
 <div class="footer">
   <div class="footer-logo"><span class="yo">yo</span><span class="dy">dy</span></div>
-  <div class="footer-text">CYO CRM · Prepared by <strong>Lãm (Water Four)</strong> · 21/04/2026</div>
+  <div class="footer-text">CYO CRM · Prepared by <strong>Lãm</strong> · 21/04/2026</div>
   <div class="footer-text">Use-case deadline: <strong>25/04/2026</strong> · MVP Go-Live: <strong>30/06/2026</strong> · Demo by PO Lãm</div>
 </div>
 
