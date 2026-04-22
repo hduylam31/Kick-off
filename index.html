@@ -275,10 +275,10 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
   <div class="hero-meta">
     <div class="meta-pill"><span>📅</span><span>Prepared: <strong>21/04/2026</strong></span></div>
     <div class="meta-pill"><span>⏰</span><span>Deadline output: <strong>24/04/2026</strong></span></div>
-    <div class="meta-pill"><span>👤</span><span>PO: <strong>Lãm</strong></span></div>
+    <div class="meta-pill"><span>👤</span><span>PO: <strong>Lãm (Water Four)</strong></span></div>
     <div class="meta-pill"><span>🎯</span><span>UC: <strong>5 · 2 · 7 · 8</strong></span></div>
     <div class="meta-pill"><span>⏱</span><span><strong>90 phút</strong></span></div>
-    <div class="meta-pill" style="background:rgba(52,211,153,.18);border-color:rgba(52,211,153,.4);"><span>🚀</span><span>MVP Demo: <strong style="color:#34D399;">Tháng 6 · PO</strong></span></div>
+    <div class="meta-pill" style="background:rgba(52,211,153,.18);border-color:rgba(52,211,153,.4);"><span>🚀</span><span>MVP Demo: <strong style="color:#34D399;">Tháng 6 · PO Lãm trình bày</strong></span></div>
   </div>
 </div>
 
@@ -497,8 +497,8 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
   <div class="disclaimer-banner" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-color:#34D399;">
     <div class="disclaimer-icon">🚀</div>
     <div class="disclaimer-body">
-      <div class="disclaimer-title" style="color:#166534;">MVP Go-Live: Tháng 6/2026 — PO Lãm sẽ trực tiếp demo cho Team MKT</div>
-      <div class="disclaimer-text">CYO không phải dự án "xây xong mới thấy". Team MKT tham gia từ đầu để định hình sản phẩm. <strong>Giai đoạn đầu (T1–T4)</strong>: làm việc chủ yếu với <strong>anh Bình (BI Team)</strong> để cung cấp use-case và validate data. PO Lãm điều phối toàn bộ, demo kết quả cuối cùng.</div>
+      <div class="disclaimer-title" style="color:#166534;">MVP Go-Live: Tháng 6/2026 — demo cho Team MKT</div>
+      <div class="disclaimer-text">Team MKT tham gia từ đầu để định hình sản phẩm. <strong>Giai đoạn đầu (T1–T4)</strong>: làm việc chủ yếu với <strong>anh Bình (BI Team)</strong> để cung cấp use-case và validate data. PO Lãm điều phối toàn bộ, demo kết quả cuối cùng.</div>
     </div>
   </div>
 
@@ -744,6 +744,20 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
     /* Convert week number to left% / width% */
     function L(w)      { return ((w - 1) / NW * 100).toFixed(3) + '%'; }
     function W(w, w2)  { return ((w2 - w + 1) / NW * 100).toFixed(3) + '%'; }
+    
+    /* Check if a bar spans into a holiday week — if so, cut it */
+    function getBarWeekRange(w, w2) {
+      let start = w, end = w2;
+      // If bar starts before holiday, cut at holiday start
+      for (let i = start; i <= end; i++) {
+        if (WEEKS[i-1].hol) {
+          end = i - 1; // Cut bar before holiday
+          break;
+        }
+      }
+      if (end < start) return null; // Entire bar is on/after holiday
+      return {w: start, w2: end};
+    }
 
     /* Column grid overlay for a bar row */
     function colGrid() {
@@ -819,27 +833,35 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
           html += colGrid();
 
           if (b.sty === 'ms') {
-            /* Milestone: diamond + label */
-            const msLeft = 'calc(' + L(b.w) + ' + 2px)';
-            html += '<div style="position:absolute;left:' + msLeft + ';top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:8px;">';
-            html += '<div style="width:13px;height:13px;background:#10b981;border-radius:2px;transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 0 2px rgba(16,185,129,.25);"></div>';
-            html += '<span style="font-size:10px;font-weight:700;color:#065f46;white-space:nowrap;">' + b.t + '</span>';
-            html += '</div>';
+            /* Milestone: diamond + label — only show if not on holiday */
+            if (!WEEKS[b.w-1].hol) {
+              const msLeft = 'calc(' + L(b.w) + ' + 2px)';
+              html += '<div style="position:absolute;left:' + msLeft + ';top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:8px;">';
+              html += '<div style="width:13px;height:13px;background:#10b981;border-radius:2px;transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 0 2px rgba(16,185,129,.25);"></div>';
+              html += '<span style="font-size:10px;font-weight:700;color:#065f46;white-space:nowrap;">' + b.t + '</span>';
+              html += '</div>';
+            }
           } else {
             /* Regular bar */
-            let bg, border, textColor, fw;
-            if (b.sty === 'crit') {
-              bg = '#fee2e2'; border = '1.5px solid #f87171'; textColor = '#7f1d1d'; fw = '700';
-            } else if (b.sty === 'collab') {
-              bg = 'rgba(16,185,129,.15)'; border = '2px solid #10b981'; textColor = '#065f46'; fw = '700';
-            } else if (isMkt) {
-              bg = 'rgba(252,175,23,.18)'; border = '2px solid #FCAF17'; textColor = '#78350f'; fw = '700';
+            // Check if bar spans into holiday — if so, cut it
+            const barRange = getBarWeekRange(b.w, b.w2);
+            if (barRange === null) {
+              // Bar is entirely on/after holiday, don't render
             } else {
-              bg = lane.dot + '1A'; border = '1px solid ' + lane.dot + '70'; textColor = '#1f2937'; fw = '400';
+              let bg, border, textColor, fw;
+              if (b.sty === 'crit') {
+                bg = '#fee2e2'; border = '1.5px solid #f87171'; textColor = '#7f1d1d'; fw = '700';
+              } else if (b.sty === 'collab') {
+                bg = 'rgba(16,185,129,.15)'; border = '2px solid #10b981'; textColor = '#065f46'; fw = '700';
+              } else if (isMkt) {
+                bg = 'rgba(252,175,23,.18)'; border = '2px solid #FCAF17'; textColor = '#78350f'; fw = '700';
+              } else {
+                bg = lane.dot + '1A'; border = '1px solid ' + lane.dot + '70'; textColor = '#1f2937'; fw = '400';
+              }
+              html += '<div style="position:absolute;left:' + L(barRange.w) + ';width:' + W(barRange.w, barRange.w2) + ';top:50%;transform:translateY(-50%);height:22px;background:' + bg + ';border:' + border + ';border-radius:5px;display:flex;align-items:center;padding:0 9px;box-sizing:border-box;">';
+              html += '<span style="font-size:10px;font-weight:' + fw + ';color:' + textColor + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;">' + b.t + '</span>';
+              html += '</div>';
             }
-            html += '<div style="position:absolute;left:' + L(b.w) + ';width:' + W(b.w, b.w2) + ';top:50%;transform:translateY(-50%);height:22px;background:' + bg + ';border:' + border + ';border-radius:5px;display:flex;align-items:center;padding:0 9px;box-sizing:border-box;">';
-            html += '<span style="font-size:10px;font-weight:' + fw + ';color:' + textColor + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;">' + b.t + '</span>';
-            html += '</div>';
           }
 
           html += '</div></div>'; /* close bar track + row */
@@ -1533,7 +1555,7 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
         <tr><td><strong>3–5 segment mô tả bằng lời</strong> — câu mô tả segment thực tế MKT hay dùng (input cho anh Bình build filter)</td><td><span class="deadline-badge">⏰ 25/04/2026</span></td><td><span class="owner-badge">MKT → anh Bình (BI)</span></td></tr>
         <tr><td><strong>Brand Voice doc</strong> — tài liệu hoặc ví dụ nội dung YODY đã dùng (anh Bình cần để enrich ContentGen)</td><td><span class="deadline-badge">⏰ 30/04/2026</span></td><td><span class="owner-badge">MKT Lead → anh Bình</span></td></tr>
         <tr><td><strong>MKT sign-off</strong> trên 4 UC flows (UC5 · UC2 · UC7 · UC8) + confirm lịch interview 07–09/05</td><td><span class="deadline-badge">⏰ 25/04/2026</span></td><td><span class="owner-badge">🗳 MKT Lead → Lãm</span></td></tr>
-        <tr style="background:rgba(52,211,153,.06)"><td><strong>🚀 MVP Demo</strong> — PO cho toàn team MKT, MKT tham gia UAT</td><td><span style="display:inline-flex;align-items:center;gap:4px;background:#dcfce7;color:#166534;border-radius:var(--r-sm);font-size:11px;font-weight:800;padding:3px 10px;border:1px solid #86efac;">🎯 Tháng 6/2026</span></td><td><span style="display:inline-flex;align-items:center;gap:4px;background:#f0fdf4;color:#166534;border-radius:var(--r-sm);font-size:12px;font-weight:700;padding:3px 10px;border:1px solid #86efac;">⭐ PO Lãm demo · MKT UAT</span></td></tr>
+        <tr style="background:rgba(52,211,153,.06)"><td><strong>🚀 MVP Demo</strong> — PO Lãm trình bày cho toàn team MKT, MKT tham gia UAT</td><td><span style="display:inline-flex;align-items:center;gap:4px;background:#dcfce7;color:#166534;border-radius:var(--r-sm);font-size:11px;font-weight:800;padding:3px 10px;border:1px solid #86efac;">🎯 Tháng 6/2026</span></td><td><span style="display:inline-flex;align-items:center;gap:4px;background:#f0fdf4;color:#166534;border-radius:var(--r-sm);font-size:12px;font-weight:700;padding:3px 10px;border:1px solid #86efac;">⭐ PO Lãm demo · MKT UAT</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -1542,7 +1564,7 @@ body { font-family: var(--font); background: var(--gray-50); color: var(--gray-8
 
 <div class="footer">
   <div class="footer-logo"><span class="yo">yo</span><span class="dy">dy</span></div>
-  <div class="footer-text">CYO CRM · Prepared by <strong>Lãm</strong> · 21/04/2026</div>
+  <div class="footer-text">CYO CRM · Prepared by <strong>Lãm (Water Four)</strong> · 21/04/2026</div>
   <div class="footer-text">Use-case deadline: <strong>25/04/2026</strong> · MVP Go-Live: <strong>30/06/2026</strong> · Demo by PO Lãm</div>
 </div>
 
